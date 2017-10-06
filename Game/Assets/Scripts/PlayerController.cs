@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
     public float jumpHeight;
-    public float groundCheckRadius;
-    public Transform groundCheck;
-    public LayerMask maskGround;
-    private bool grounded;
+    //public float groundCheckRadius;
+    //public Transform groundCheck;
+    //public LayerMask maskGround;
+    //private bool grounded;
     private Animator anime;
 
 
@@ -19,10 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         anime = GetComponent<Animator>();
     }
-    private void FixedUpdate()
-    {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, maskGround);
-    }
+ 
     // Update is called once per frame
     void Update()
     {
