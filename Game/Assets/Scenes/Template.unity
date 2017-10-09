@@ -1036,7 +1036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpHeight: 8
-  warpDestination: {fileID: 0}
+  warpDestination: {fileID: 205860182}
 --- !u!61 &2089539302
 BoxCollider2D:
   m_ObjectHideFlags: 0
