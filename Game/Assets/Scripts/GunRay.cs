@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class mmg : MonoBehaviour {
+public class GunRay : MonoBehaviour {
 	//item the gun holds
 	GameObject item;
 	Transform myTransform;
@@ -36,7 +36,7 @@ public class mmg : MonoBehaviour {
 			//if no item display gunray
 			if (item == null) {
 				//fire gun ray
-				myTransform.localPosition = new Vector3 (0f, 0f, 0f);
+				myTransform.localPosition = new Vector3 (0f, -0.03f, 0f);
 				//set direction of ray and collider
 				if (manDir >= 0) {
 					myRend.SetPosition (1, new Vector3 (8f, 0f, 0f));
