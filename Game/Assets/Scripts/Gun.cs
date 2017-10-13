@@ -3,23 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour {
-	
+
+	//true when gun flipped left
 	bool flipped;
-	// Use this for initialization
+	//position of gun relative to character
+	Vector3 myPos;
+
 	void Start () {
-		GetComponent<Transform>().localPosition = new Vector3 (0.1f, -0.1f, 0f);
+		//initialize
+		myPos = new Vector3 (0.1f, -0.1f, 0f);
+		GetComponent<Transform>().localPosition = myPos;
 		flipped = false;
+
+		//create a child gunRay object 
+		Instantiate((Resources.Load("GunRay") as GameObject),GetComponent<Transform>()); 
 	}
-	// Update is called once per frame
+
 	void Update () {
+		//get character direction to face gun the correct way
 		float manDir=  GameObject.Find ("OldMan").GetComponent<Rigidbody2D>().velocity.x;
+
+		//if character facing right or forward and gun is facing left
 		if (manDir >= 0 && flipped) {
-			GetComponent<Transform> ().localPosition = new Vector3 (0.1f, -0.1f, 0f);
+			//set position in relation to character
+			myPos.x = Mathf.Abs (myPos.x);
+			GetComponent<Transform> ().localPosition = myPos;
+
+			//flip the direction of the gun
 			GetComponent<SpriteRenderer> ().flipX = false;
 			flipped = false;
 		}
+
+		//if character facing left and gun is facing right
 		else if(manDir < 0 && !flipped){
-			GetComponent<Transform>().localPosition = new Vector3 (-0.1f, -0.1f, 0f);
+			//set position in relation to character
+			myPos.x = -(Mathf.Abs (myPos.x));
+			GetComponent<Transform>().localPosition = myPos;
+
+			//flip the direction of the gun
 			GetComponent<SpriteRenderer> ().flipX = true;
 			flipped=true;
 		}
