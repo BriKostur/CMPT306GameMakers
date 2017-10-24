@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
     public float jumpHeight;
-    public float groundCheckRadius;
-    public Transform groundCheck;
-    public LayerMask maskGround;
-    private bool grounded;
+    //public float groundCheckRadius;
+    //public Transform groundCheck;
+    //public LayerMask maskGround;
+    //private bool grounded;
     private Animator anime;
 
 
@@ -19,10 +19,7 @@ public class PlayerController : MonoBehaviour
     {
         anime = GetComponent<Animator>();
     }
-    private void FixedUpdate()
-    {
-        grounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, maskGround);
-    }
+ 
     // Update is called once per frame
     void Update()
     {
@@ -32,13 +29,13 @@ public class PlayerController : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x, jumpHeight);
             anime.SetBool("Jump", true);
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.D))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
             //anime.SetFloat("Speed", GetComponent<Rigidbody2D>().velocity.x);
 
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.A))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
