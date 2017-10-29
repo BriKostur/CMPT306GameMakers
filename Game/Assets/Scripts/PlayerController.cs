@@ -7,16 +7,16 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
     public float jumpHeight;
-    //public float groundCheckRadius;
-    //public Transform groundCheck;
-    //public LayerMask maskGround;
-    //private bool grounded;
     private Animator anime;
+	private bool inAir; // Flag to prevent the player from jumping infinitely
+	public Transform warpDestination;
 
 
     // Use this for initialization
     void Start()
     {
+		inAir = false;
+		gameObject.transform.position = warpDestination.position; // Set spawn point
         anime = GetComponent<Animator>();
     }
  
@@ -32,22 +32,17 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey(KeyCode.D))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
-            //anime.SetFloat("Speed", GetComponent<Rigidbody2D>().velocity.x);
-
         }
         if (Input.GetKey(KeyCode.A))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(-moveSpeed, GetComponent<Rigidbody2D>().velocity.y);
         }
-
         anime.SetFloat("Speed", GetComponent<Rigidbody2D>().velocity.x);
-
-
-
     }
 
      void OnCollisionEnter2D(Collision2D coll)
     {
+		inAir = false; // We are no longer jumping
         anime.SetBool("Jump", false);
     }
 }
