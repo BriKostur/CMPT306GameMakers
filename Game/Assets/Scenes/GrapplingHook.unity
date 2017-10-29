@@ -499,7 +499,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1586166253642654, guid: 382d3bf6fc944c544936ec44adbda766, type: 2}
       propertyPath: m_Name
-      value: CollisionBox
+      value: GrapplingBox
       objectReference: {fileID: 0}
     - target: {fileID: 1586166253642654, guid: 382d3bf6fc944c544936ec44adbda766, type: 2}
       propertyPath: m_Layer
