@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 563ba9ad7eed94ed584a09408754e858
 timeCreated: 1507583786
+=======
+guid: 382d3bf6fc944c544936ec44adbda766
+timeCreated: 1507335245
+>>>>>>> Grapplinghook
 licenseType: Free
 NativeFormatImporter:
   mainObjectFileID: 100100000
