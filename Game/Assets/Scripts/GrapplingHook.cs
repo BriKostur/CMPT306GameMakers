@@ -11,6 +11,7 @@ public class GrapplingHook : MonoBehaviour
     RaycastHit2D hit;
     public float distance = 10f;
     public LayerMask mask;
+    //How fast the rope slowly closes down
     public float step = 0.02f;
 
     // Use this for initialization
