@@ -49,9 +49,9 @@ public class PlayerController : MonoBehaviour
 
 		//Alternate movement code
 		curVec = phys.velocity;
-		moveVec.x = moveSpeed * Input.GetAxis ("Horizontal");
-
-		if (moveVec.x < minVel && moveVec.x > -minVel && moveVec.x!=0) {
+		moveVec.x = moveSpeed * Input.GetAxis ("Horizontal") * transform.right.x;
+		moveVec.y = moveSpeed * Input.GetAxis ("Horizontal") * transform.right.y;
+		/*if (moveVec.x < minVel && moveVec.x > -minVel && moveVec.x!=0) {
 			if (moveVec.x > 0){ 
 				moveVec.x = minVel;
 			}else{
@@ -64,8 +64,7 @@ public class PlayerController : MonoBehaviour
 		}
 		if (curVec.x + moveVec.x < -maxVel) {
 			moveVec.x = -maxVel - curVec.x;
-		}
-
+		}*/
 		GetComponent<Rigidbody2D>().AddForce(moveVec); //*/
 
         /* if (Input.GetKey(KeyCode.RightArrow))
