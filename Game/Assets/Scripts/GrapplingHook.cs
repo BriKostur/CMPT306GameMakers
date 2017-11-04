@@ -37,7 +37,7 @@ public class GrapplingHook : MonoBehaviour
 
         }
 
-        //If e is clicked sling out the grapple
+        //If Mouse0 is clicked sling out the grapple
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             targetPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
