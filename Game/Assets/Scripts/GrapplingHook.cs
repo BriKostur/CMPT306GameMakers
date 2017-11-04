@@ -48,7 +48,6 @@ public class GrapplingHook : MonoBehaviour
             hit = Physics2D.Raycast(transform.position, targetPos - transform.position, distance, mask);
 
             //Ive placed a check to check for now to check if the grappling hook is being collided 
-            // with a Rigidbody2D , TODO change that to a specefic component.
             if (hit.collider != null && hit.collider.gameObject.GetComponent<Rigidbody2D>() != null)
             {
                 //if enters this loop join is enabled and connects to RigidBody2D
