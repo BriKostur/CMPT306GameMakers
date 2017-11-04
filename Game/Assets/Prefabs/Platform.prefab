@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 61766128987712078}
   - component: {fileID: 212411992893284634}
   - component: {fileID: 50511862902779338}
-  - component: {fileID: 114264861219610406}
+  - component: {fileID: 114308546646663282}
+  - component: {fileID: 114208145657144120}
   m_Layer: 0
   m_Name: Platform
   m_TagString: Untagged
@@ -88,7 +89,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16, y: 0.16}
   m_EdgeRadius: 0
---- !u!114 &114264861219610406
+--- !u!114 &114208145657144120
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -96,7 +97,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1412724911595734}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 805e8616023c14228968b5cebef294c2, type: 3}
+  m_Script: {fileID: 11500000, guid: f282643c91dca41eca8541a6dbe15f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragDrop: {fileID: 0}
+--- !u!114 &114308546646663282
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1412724911595734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efc3f3ca101304bfeab81377b64ec538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212411992893284634

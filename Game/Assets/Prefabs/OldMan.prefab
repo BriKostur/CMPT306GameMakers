@@ -25,10 +25,11 @@ GameObject:
   - component: {fileID: 114047001447044800}
   - component: {fileID: 61061282497624068}
   - component: {fileID: 95298996845347006}
-  - component: {fileID: 114859874044743760}
+  - component: {fileID: 114686961387182708}
+  - component: {fileID: 114999192137004756}
   m_Layer: 0
   m_Name: OldMan
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,8 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpHeight: 8
-  warpDestination: {fileID: 0}
---- !u!114 &114859874044743760
+--- !u!114 &114686961387182708
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -145,9 +145,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1431349707420432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 805e8616023c14228968b5cebef294c2, type: 3}
+  m_Script: {fileID: 11500000, guid: efc3f3ca101304bfeab81377b64ec538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114999192137004756
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1431349707420432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f282643c91dca41eca8541a6dbe15f37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dragDrop: {fileID: 0}
 --- !u!212 &212569668528604962
 SpriteRenderer:
   m_ObjectHideFlags: 1
