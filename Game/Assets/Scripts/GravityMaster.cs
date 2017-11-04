@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class GravityMaster : MonoBehaviour {
 	public Vector2 grav;
-	public bool doUpdate;
-
+    public Vector2 gravb;
+    public bool doUpdate;
+    bool whichGrav;
 	void Start () {
 		grav = Physics.gravity;
 	}
@@ -17,4 +18,20 @@ public class GravityMaster : MonoBehaviour {
 			doUpdate = false;
 		}
 	}
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (Input.GetKeyDown(KeyCode.E) && collision.gameObject.tag == "Player") {
+            if (whichGrav)
+            {
+                Physics2D.gravity = grav;
+                whichGrav = !whichGrav;
+            }
+            else
+            {
+                Physics2D.gravity = gravb;
+                whichGrav = !whichGrav;
+            }
+
+        }    
+    }
 }

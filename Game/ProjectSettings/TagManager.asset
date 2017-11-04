@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - MMGBox
+  - MagBoots
+  - Button
+  - Victory
   layers:
   - Default
   - TransparentFX
