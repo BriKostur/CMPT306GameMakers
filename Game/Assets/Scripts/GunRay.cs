@@ -75,6 +75,7 @@ public class GunRay : MonoBehaviour {
 			//else place object beside old man
 			} else {
 				//if man facing right or forward place object to right of man
+				item.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
 				if (manDir >= 0) {
 					item.transform.position = new Vector3 (oldMan.transform.position.x + 1.5f, oldMan.transform.position.y, oldMan.transform.position.z);
 				} 
@@ -98,10 +99,10 @@ public class GunRay : MonoBehaviour {
 	}
 
 
-	void OnCollisionEnter2D(Collision2D coll)
+	void OnTriggerEnter2D(Collider2D coll)
 	{
 		//get object collided with
-		GameObject collObj = coll.collider.gameObject; 
+		GameObject collObj = coll.gameObject; 
 
 		//if collided with MMGBox set and hide item
 		if (collObj.tag == "MMGBox"){
