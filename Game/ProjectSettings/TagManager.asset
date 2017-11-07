@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Original
   - Prefab
+  - MMGBox
+  - MagBoots
+  - Button
+  - Victory
   layers:
   - Default
   - TransparentFX
@@ -16,8 +20,8 @@ TagManager:
   - 
   - 
   - Player
-  - 
-  - 
+  - Grapple
+  - Gun
   - 
   - 
   - 
@@ -48,4 +52,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2978922641
+    locked: 0
+  - name: Gun
+    uniqueID: 1993908437
     locked: 0
