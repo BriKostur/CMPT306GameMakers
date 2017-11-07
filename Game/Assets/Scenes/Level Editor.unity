@@ -714,7 +714,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114308546646663282, guid: 0b4f694a92b5a4c5292d5c10bff83788,
+      - m_Target: {fileID: 114409883818684648, guid: 382d3bf6fc944c544936ec44adbda766,
           type: 2}
         m_MethodName: Spawn
         m_Mode: 1
@@ -911,7 +911,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114686961387182708, guid: 5a8c516b82fda4368b5b2f66e57edc0b,
+      - m_Target: {fileID: 114901308891559112, guid: 1b6b169e670b0d1459ee7e45872ca5b7,
           type: 2}
         m_MethodName: Spawn
         m_Mode: 1

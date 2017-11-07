@@ -28,7 +28,7 @@ public class PlayGame : MonoBehaviour {
 		r_body = player.GetComponent<Rigidbody2D> ();
 		r_body.constraints = RigidbodyConstraints2D.None;
 		r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
-		r_body.gravityScale = 1;
+		//r_body.gravityScale = 1;
 		levelEdit.GetComponent<Canvas> ().enabled = false;
 	}
 }
