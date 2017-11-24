@@ -18,7 +18,6 @@ public class OnOffScript : MonoBehaviour {
 
 	public void enableScript() {
 		dragDrop.enabled = true;
-
 	}
 
 	public void disableScript() {

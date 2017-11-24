@@ -17,7 +17,6 @@ public class PlayGame : MonoBehaviour {
 		
 	}
 
-
 	public void Play() {
 		GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
 		foreach (GameObject go in allObjects) {
@@ -28,7 +27,6 @@ public class PlayGame : MonoBehaviour {
 		r_body = player.GetComponent<Rigidbody2D> ();
 		r_body.constraints = RigidbodyConstraints2D.None;
 		r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
-		//r_body.gravityScale = 1;
 		levelEdit.GetComponent<Canvas> ().enabled = false;
 	}
 }
