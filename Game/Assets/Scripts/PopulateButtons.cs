@@ -11,9 +11,7 @@ public class PopulateButtons : MonoBehaviour {
 
     void Start()
     {
-        
         PopulateGrid();
-
     }
 
     void Update()
@@ -23,7 +21,7 @@ public class PopulateButtons : MonoBehaviour {
 
     void PopulateGrid()
     {
-        GameObject buttonInstantiate;
+		GameObject buttonInstantiate;
         for (int i = 0; i < numberToCreate; i++)
         {
             buttonInstantiate = (GameObject)Instantiate(buttonList[i], transform);

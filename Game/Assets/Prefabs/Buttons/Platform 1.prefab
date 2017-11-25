@@ -113,13 +113,14 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114409883818684648, guid: 382d3bf6fc944c544936ec44adbda766,
+      - m_Target: {fileID: 114633885631491782, guid: 932eca1547722ac45b64f1518df3ceb1,
           type: 2}
         m_MethodName: Spawn
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1359006999222736, guid: 382d3bf6fc944c544936ec44adbda766,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

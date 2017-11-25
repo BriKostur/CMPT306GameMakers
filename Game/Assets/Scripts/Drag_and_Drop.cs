@@ -6,10 +6,9 @@ public class Drag_and_Drop : MonoBehaviour {
 	
 	private Vector3 offset;
 	private Vector3 mousePosition;
-
+	private GameObject temp;
 	// Use this for initialization
 	void Start () {
-		
 	}
 
 	// Update is called once per frame
@@ -32,7 +31,11 @@ public class Drag_and_Drop : MonoBehaviour {
 		transform.position = Camera.main.ScreenToWorldPoint (mousePosition) + offset;
 	}
 
-	public void Spawn() {
-		Instantiate (this, new Vector2(-10, 3), Quaternion.identity);
+	public void Spawn(GameObject toInst) {
+		if (toInst == null) {
+			Instantiate (this, new Vector2 (-10, 3), toInst.transform.rotation);
+		} else {
+			Instantiate (toInst, new Vector2 (-10, 3), toInst.transform.rotation);
+		}
 	}
 }
