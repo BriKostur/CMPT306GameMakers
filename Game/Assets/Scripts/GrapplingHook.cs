@@ -32,6 +32,7 @@ public class GrapplingHook : MonoBehaviour
             joint.distance -= step;
         else
         {
+            line.sortingOrder = 1;
             line.enabled = false;
             joint.enabled = false;
 

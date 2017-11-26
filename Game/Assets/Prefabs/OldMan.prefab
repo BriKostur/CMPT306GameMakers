@@ -139,7 +139,7 @@ MonoBehaviour:
   maxVel: 16
   minVel: 4
   moveSpeed: 5
-  jumpHeight: 8
+  jumpHeight: 5
   warpDestination: {fileID: 4188376632746294, guid: b244f86781e4b964aba7e3636202d3e4,
     type: 2}
 --- !u!114 &114234760327107080
@@ -209,7 +209,7 @@ DistanceJoint2D:
   m_GameObject: {fileID: 1378445158142178}
   m_Enabled: 1
   serializedVersion: 4
-  m_EnableCollision: 1
+  m_EnableCollision: 0
   m_ConnectedRigidBody: {fileID: 50398852647642738, guid: 021cc3fd05067b04e9ca303cd1f8e81c,
     type: 2}
   m_BreakForce: Infinity
