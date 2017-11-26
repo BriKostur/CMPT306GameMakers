@@ -5,9 +5,7 @@ using UnityEngine;
 public class PopulateButtons : MonoBehaviour {
 
     // Number of buttons to create
-    public int numberToCreate;
-
-    public GameObject[] buttonList;
+	private Object[] butons;
 
     void Start()
     {
@@ -21,10 +19,12 @@ public class PopulateButtons : MonoBehaviour {
 
     void PopulateGrid()
     {
+		butons = Resources.LoadAll("Buttons", typeof(GameObject));
 		GameObject buttonInstantiate;
-        for (int i = 0; i < numberToCreate; i++)
+		//Buttons are in alphabetical order by default, this puts it in reverse so player is closer to the start
+		for (int i = butons.Length-1; i >= 0; i--)
         {
-            buttonInstantiate = (GameObject)Instantiate(buttonList[i], transform);
+			buttonInstantiate = (GameObject)Instantiate(butons[i], transform);
         }
     }
 }
