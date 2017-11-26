@@ -22,7 +22,7 @@ public class DisableEditorElements : MonoBehaviour {
         r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         // Removes the mmgbox's movement constraints that are present due to the level editor
-        GameObject box = GameObject.FindGameObjectWithTag("MMGBox");
+        GameObject[] box = GameObject.FindGameObjectsWithTag("MMGBox");
         r_body = player.GetComponent<Rigidbody2D>();
         r_body.constraints = RigidbodyConstraints2D.None;
         r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
