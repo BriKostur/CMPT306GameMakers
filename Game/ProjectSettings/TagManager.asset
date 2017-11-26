@@ -10,6 +10,7 @@ TagManager:
   - MagBoots
   - Button
   - Victory
+  - Door
   layers:
   - Default
   - TransparentFX

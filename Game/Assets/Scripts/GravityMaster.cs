@@ -11,7 +11,6 @@ public class GravityMaster : MonoBehaviour {
 	void Start () {
 		//grav = Physics.gravity;
 		grav = this.transform.up;
-		print (whichGrav);
 		grav.x=grav.x*-9.81f;
 		grav.y=grav.y*-9.81f;
 	}
@@ -26,7 +25,6 @@ public class GravityMaster : MonoBehaviour {
 
 	void Update(){
 		if (Input.GetKeyDown(KeyCode.E) && isInBox) {
-			print ("Got press");
 			if (whichGrav) {
 				Physics2D.gravity = grav;
 			}
