@@ -22,8 +22,6 @@ GameObject:
   - component: {fileID: 61558710924435390}
   - component: {fileID: 212882704447218478}
   - component: {fileID: 50642204441548280}
-  - component: {fileID: 114270155215260754}
-  - component: {fileID: 114112922507531496}
   m_Layer: 0
   m_Name: MmgBox
   m_TagString: MMGBox
@@ -89,29 +87,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
---- !u!114 &114112922507531496
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1259953947592180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f282643c91dca41eca8541a6dbe15f37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragDrop: {fileID: 114270155215260754}
---- !u!114 &114270155215260754
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1259953947592180}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc3f3ca101304bfeab81377b64ec538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &212882704447218478
 SpriteRenderer:
   m_ObjectHideFlags: 1

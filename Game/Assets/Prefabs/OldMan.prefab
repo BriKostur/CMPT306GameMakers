@@ -45,8 +45,6 @@ GameObject:
   - component: {fileID: 114234760327107080}
   - component: {fileID: 232764718573331694}
   - component: {fileID: 247460302899291708}
-  - component: {fileID: 114901308891559112}
-  - component: {fileID: 114634403743290534}
   m_Layer: 8
   m_Name: OldMan
   m_TagString: Player
@@ -252,29 +250,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   step: 0.02
---- !u!114 &114634403743290534
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1378445158142178}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f282643c91dca41eca8541a6dbe15f37, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dragDrop: {fileID: 114901308891559112}
---- !u!114 &114901308891559112
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1378445158142178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc3f3ca101304bfeab81377b64ec538, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114963729371289610
 MonoBehaviour:
   m_ObjectHideFlags: 1
