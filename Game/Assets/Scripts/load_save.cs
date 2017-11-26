@@ -4,9 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEditor;
 using System;
+using System.IO;
 
 public class load_save : MonoBehaviour {
-
+	private string myFilePath = "Assets/LoadScenes/";
 	// Use this for initialization
 	void Start () {
 		
@@ -48,19 +49,16 @@ public class load_save : MonoBehaviour {
 
 
 
-	public void Save() {
+	public void Save(string levelName) {
 		GameObject [] gameObjects = SceneManager.GetSceneByName("loads_save").GetRootGameObjects(); 
 		int size = gameObjects.Length;
-		//Debug.Log ("length of gameobjects" +size);
 		object_info[] info = new object_info[size];
-
+		Debug.Log ("in save");
 		for (int i = 0; i < size; i++) {
 			object_info myInfo = new object_info();
-			//this.gameObject.AddComponent<object_info> ();
-			PrefabType curObj  = PrefabUtility.GetPrefabType(gameObjects [i]);
-			myInfo.setName (curObj.ToString());
+			GameObject prefab = PrefabUtility.FindPrefabRoot(gameObjects[i]);
+			myInfo.setName(prefab.name);
 			myInfo.setLocX (gameObjects [i].transform.position.x);
-			//Debug.Log ("locX is" + myInfo.getLocX());
 			myInfo.setLocY ( gameObjects [i].transform.position.y);
 			myInfo.setLocZ( gameObjects [i].transform.position.z);
 			myInfo.setRotW (gameObjects [i].transform.rotation.w);
@@ -68,17 +66,45 @@ public class load_save : MonoBehaviour {
 			myInfo.setRotY ( gameObjects [i].transform.rotation.y);
 			myInfo.setRotZ ( gameObjects [i].transform.rotation.z);
 			info [i] = myInfo;
-			Debug.Log (info [i].getLocX());
 		}
+			
+		string infoToJson = JsonHelper.ToJson(info);
+		File.WriteAllText (myFilePath + levelName + ".json", infoToJson);
+		AssetDatabase.Refresh ();
 
-		//Convert to Jason
-		string infoToJason = JsonHelper.ToJson(info, true);
-		Debug.Log(infoToJason);
 	}
 
+	void Load(string levelName){
+		Debug.Log("IN LOAD");
+		if (File.Exists (myFilePath + levelName + ".json")) {
+			string dataAsJson = File.ReadAllText (myFilePath + levelName + ".json");
+			object_info[] returnInfo = JsonHelper.FromJson<object_info> (dataAsJson);
+			Camera myCam = Camera.main;
+			myCam.transform.position = new Vector3 (returnInfo [0].getLocX (), returnInfo [0].getLocY (), returnInfo [0].getLocZ ());
+			for (int i = 1; i < returnInfo.Length; i++) {
+				UnityEngine.Object myObj = Resources.Load (returnInfo [i].getPrefabName ());
+				if (myObj != null) {
+					Instantiate (Resources.Load (returnInfo [i].getPrefabName ()),
+						new Vector3 (returnInfo [i].getLocX (), returnInfo [i].getLocY (), returnInfo [i].getLocZ ()),
+						new Quaternion (returnInfo [i].getRotW (), returnInfo [i].getRotX (), returnInfo [i].getRotY (), returnInfo [i].getRotZ ()));
+				} else {
+					Debug.Log ("null at index " + i + " name " + returnInfo [i].getPrefabName ());
+				}
+			}
+
+		} 
+	}
+
+
+	//this was for testing.
 	void OnTriggerEnter2D(Collider2D col){
-		Save ();
+		if (this.name == "SavObj") {
+			Save ("fun");
+		} else if((this.name == "LoadObj")){
+			Load ("fun");
+		}
 	}
+
 
 }
 

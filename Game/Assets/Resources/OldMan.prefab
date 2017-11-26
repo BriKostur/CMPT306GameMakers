@@ -192,8 +192,6 @@ MonoBehaviour:
   minVel: 4
   moveSpeed: 5
   jumpHeight: 8
-  warpDestination: {fileID: 4188376632746294, guid: b244f86781e4b964aba7e3636202d3e4,
-    type: 2}
 --- !u!114 &114234760327107080
 MonoBehaviour:
   m_ObjectHideFlags: 1
