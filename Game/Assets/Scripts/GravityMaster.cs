@@ -22,7 +22,6 @@ public class GravityMaster : MonoBehaviour {
 
 	void Update(){
 		if (Input.GetKeyDown(KeyCode.E) && isInBox) {
-			print ("Got press");
 			if (whichGrav)
 			{
 				Physics2D.gravity = grav;

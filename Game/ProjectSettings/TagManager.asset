@@ -10,6 +10,7 @@ TagManager:
   - MagBoots
   - Button
   - Victory
+  - GravPlat
   layers:
   - Default
   - TransparentFX

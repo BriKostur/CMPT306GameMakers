@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Animator anime;
 	private bool right;
 	private bool inAir; // Flag to prevent the player from jumping infinitely
+	public bool canGrav;
 	//public Transform warpDestination;
 	
     // Use this for initialization
@@ -74,10 +75,14 @@ public class PlayerController : MonoBehaviour
 	 void OnCollisionStay2D (Collision2D collisionInfo)
  	{
 		inAir = false;
+		if (collisionInfo.gameObject.tag=="GravPlat") {
+			canGrav = true;
+		}
  	}
  
  	void OnCollisionExit2D (Collision2D collisionInfo)
-	 {
+	{
 		inAir = true;
+		canGrav = false;
  	}
 }
