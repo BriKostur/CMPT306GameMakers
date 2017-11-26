@@ -7,7 +7,7 @@ public class Drag_and_Drop : MonoBehaviour {
 	private Vector3 offset;
 	private Vector3 mousePosition;
 	private GameObject temp;
-
+	
 	// Use this for initialization
 	void Start () {
 	}
@@ -36,6 +36,9 @@ public class Drag_and_Drop : MonoBehaviour {
 			temp =(GameObject)Instantiate (toInst, new Vector2 (-10, 3), toInst.transform.rotation);
 			temp.AddComponent<Drag_and_Drop> ();
             temp.AddComponent<OnOffScript>();
+			if (temp.GetComponent<Rigidbody2D> () != null) {
+				temp.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
+			}
 		}
 	}
 }

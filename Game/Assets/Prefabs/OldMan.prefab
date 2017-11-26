@@ -259,10 +259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3677440c3ebd0f94d854e744b5c1385c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVel: 16
-  minVel: 4
+  maxVel: 12
+  minVel: 8
   moveSpeed: 5
-  jumpHeight: 8
+  jumpHeight: 6
 --- !u!114 &114234760327107080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: {fileID: 120585575779577636}
-  distance: 10
+  distance: 8
   mask:
     serializedVersion: 2
     m_Bits: 512

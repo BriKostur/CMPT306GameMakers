@@ -160,7 +160,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Ice Platform
+  m_Text: Ice Platform H
 --- !u!114 &114791197706583714
 MonoBehaviour:
   m_ObjectHideFlags: 1

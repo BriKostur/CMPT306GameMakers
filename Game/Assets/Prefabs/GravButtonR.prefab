@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61023004875165078}
   - component: {fileID: 114153481703942010}
   m_Layer: 0
-  m_Name: GravButton
+  m_Name: GravButtonR
   m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,13 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1939769930858748}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.78, y: 1.41, z: -0.00092028826}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: -6.130098, y: -2.7530687, z: -0.00092028826}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!61 &61023004875165078
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -65,7 +65,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2911873, y: 0.14161071}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &114153481703942010
 MonoBehaviour:
@@ -79,7 +79,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grav: {x: 0, y: -9}
-  gravb: {x: 0, y: 9}
   doUpdate: 0
 --- !u!212 &212791475684694036
 SpriteRenderer:
