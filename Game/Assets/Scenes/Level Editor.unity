@@ -413,22 +413,22 @@ Prefab:
     - target: {fileID: 224216049755106368, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 340
+      value: 338
       objectReference: {fileID: 0}
     - target: {fileID: 224216049755106368, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 174
+      value: 178
       objectReference: {fileID: 0}
     - target: {fileID: 224216049755106368, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
       propertyPath: m_SizeDelta.x
-      value: 160
+      value: 135.5
       objectReference: {fileID: 0}
     - target: {fileID: 224216049755106368, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 30
+      value: 45.5
       objectReference: {fileID: 0}
     - target: {fileID: 224216049755106368, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
@@ -469,6 +469,31 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 114165804837503932, guid: a210ed65d58574bada35763ddf5c943c,
+        type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 224795747570909562, guid: a210ed65d58574bada35763ddf5c943c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.0000066757
+      objectReference: {fileID: 0}
+    - target: {fileID: 224795747570909562, guid: a210ed65d58574bada35763ddf5c943c,
+        type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224795747570909562, guid: a210ed65d58574bada35763ddf5c943c,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.00009346
+      objectReference: {fileID: 0}
+    - target: {fileID: 224795747570909562, guid: a210ed65d58574bada35763ddf5c943c,
+        type: 2}
+      propertyPath: m_SizeDelta.x
+      value: -45.167
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a210ed65d58574bada35763ddf5c943c, type: 2}
@@ -743,7 +768,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 212817825}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.9999994
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PopulateButtons : MonoBehaviour {
-
-    // Number of buttons to create
-	private Object[] butons;
+    
+	private Object[] buttons;
 
     void Start()
     {
@@ -19,12 +18,14 @@ public class PopulateButtons : MonoBehaviour {
 
     void PopulateGrid()
     {
-		butons = Resources.LoadAll("Buttons", typeof(GameObject));
+		buttons = Resources.LoadAll("Buttons", typeof(GameObject));
 		GameObject buttonInstantiate;
-		//Buttons are in alphabetical order by default, this puts it in reverse so player is closer to the start
-		for (int i = butons.Length-1; i >= 0; i--)
+
+        // Instantiates the buttons present in the Buttons folder that is within the Resources folder
+		// Buttons are in alphabetical order by default, this puts it in reverse so player is closer to the start
+		for (int i = buttons.Length-1; i >= 0; i--)
         {
-			buttonInstantiate = (GameObject)Instantiate(butons[i], transform);
+			buttonInstantiate = (GameObject)Instantiate(buttons[i], transform);
         }
     }
 }
