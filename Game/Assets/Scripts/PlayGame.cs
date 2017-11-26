@@ -25,12 +25,18 @@ public class PlayGame : MonoBehaviour {
 
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
         GameObject box = GameObject.FindGameObjectWithTag("MMGBox");
-		r_body = player.GetComponent<Rigidbody2D> ();
-		r_body.constraints = RigidbodyConstraints2D.None;
-		r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
-        r_body = box.GetComponent<Rigidbody2D>();
-        r_body.constraints = RigidbodyConstraints2D.None;
-        r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if(player != null) {
+            r_body = player.GetComponent<Rigidbody2D>();
+            r_body.constraints = RigidbodyConstraints2D.None;
+            r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+        if (box != null)
+        {
+            r_body = box.GetComponent<Rigidbody2D>();
+            r_body.constraints = RigidbodyConstraints2D.None;
+            r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+
 		levelEdit.GetComponent<Canvas> ().enabled = false;
 	}
 }
