@@ -28,7 +28,7 @@ public class GunRay : MonoBehaviour {
 		//initialize
 		myTransform = GetComponent<Transform>();
 		item = null;
-		oldMan = GameObject.Find ("OldMan");
+        oldMan = GameObject.FindGameObjectWithTag ("Player");
 		timer = 0;
 		rayVisible = false;
 		myLineRend = GetComponent<LineRenderer>();

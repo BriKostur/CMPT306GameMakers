@@ -15,13 +15,13 @@ public class PlayerController : MonoBehaviour
     private Animator anime;
 	private bool right;
 	private bool inAir; // Flag to prevent the player from jumping infinitely
-	public Transform warpDestination;
+	//public Transform warpDestination;
 	
     // Use this for initialization
     void Start()
     {
 		phys = GetComponent<Rigidbody2D> ();
-		gameObject.transform.position = warpDestination.position; // Set spawn point
+		//gameObject.transform.position = warpDestination.position; // Set spawn point
         anime = GetComponent<Animator>();
     }
 	
