@@ -11,6 +11,8 @@ TagManager:
   - Button
   - Victory
   - Door
+  - GravPlat
+  - Canvas
   layers:
   - Default
   - TransparentFX

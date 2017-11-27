@@ -5,19 +5,18 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour {
 	public int channel;
 	private SpriteRenderer spr;
-	private Color col;
 	// Use this for initialization
 	void Start () {
 		spr = this.gameObject.GetComponent<SpriteRenderer> ();
 		switch(channel){
 			case 0:
-				spr.color = Color.red;
+			spr.color = Color.Lerp(Color.red, Color.grey, 0.6f);
 				break;
 			case 1:
-				spr.color = Color.green;
+			spr.color = Color.Lerp(Color.green, Color.grey, 0.6f);
 				break;
 			case 2:
-				spr.color = Color.blue;
+			spr.color = Color.Lerp(Color.blue, Color.grey, 0.6f);
 				break;
 		}
 	}
@@ -31,25 +30,24 @@ public class DoorScript : MonoBehaviour {
 		if (cIn == channel) {
 			print("Door opened");
 			this.gameObject.GetComponent<BoxCollider2D> ().isTrigger = true;
-			col = spr.color;
-			col.a = 0.5f;
-			spr.color = col;
+			spr.sprite =Resources.Load<Sprite>("door_openMid");
 		}
 	}
 
 	void Close (int cIn){
 		if (cIn == channel) {
-			this.gameObject.GetComponent<BoxCollider2D> ().isTrigger = false;
-			switch(channel){
-			case 0:
-				spr.color = Color.red;
-				break;
-			case 1:
-				spr.color = Color.green;
-				break;
-			case 2:
-				spr.color = Color.blue;
-				break;
+				this.gameObject.GetComponent<BoxCollider2D> ().isTrigger = false;
+			spr.sprite = (Sprite)Resources.Load<Sprite>("door_closedMid");
+				switch(channel){
+				case 0:
+				spr.color = Color.Lerp(Color.red, Color.grey, 0.6f);
+					break;
+				case 1:
+				spr.color = Color.Lerp(Color.green, Color.grey, 0.6f);
+					break;
+				case 2:
+				spr.color = Color.Lerp(Color.blue, Color.grey, 0.6f);
+					break;
 			}
 		}
 	}

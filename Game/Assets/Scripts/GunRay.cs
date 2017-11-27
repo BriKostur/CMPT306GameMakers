@@ -23,6 +23,8 @@ public class GunRay : MonoBehaviour {
 	//hide ray
 	Vector3 hidePos;
 
+    GameObject colObject;
+
 
 	void Start () {
 		//initialize
@@ -36,8 +38,9 @@ public class GunRay : MonoBehaviour {
 		visiblePos = new Vector3(0f, -0.03f, 0f);
 		hidePos = new Vector3 (100f, 100f, -10f);
 
-		//set gunRay to hide position
-		myTransform.localPosition = hidePos;
+        //set gunRay to hide position
+        Invoke("HideRay", 2f);
+		//myTransform.localPosition = hidePos;
 	}
 
 
@@ -98,16 +101,31 @@ public class GunRay : MonoBehaviour {
 		timer = timer + 1;
 	}
 
+    void ObjectHide() {
+        if (Time.time > 1f) {
+            item = colObject;
+            colObject.transform.localPosition = new Vector3(-100f, -100f, -20f);
+        }
+
+
+    }
+
 
 	void OnTriggerEnter2D(Collider2D coll)
 	{
-		//get object collided with
-		GameObject collObj = coll.gameObject; 
-
+        //get object collided with
+        //GameObject collObj = coll.gameObject; 
+        colObject = coll.gameObject;
+        /**
 		//if collided with MMGBox set and hide item
 		if (collObj.tag == "MMGBox"){
 			item = collObj;
 			collObj.transform.localPosition = new Vector3 (-100f, -100f, -20f);
-		}			
+		}**/		
+        if (colObject.tag == "MMGBox")
+        {
+            ObjectHide();
+
+        }
 	}
 }
