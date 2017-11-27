@@ -39,7 +39,6 @@ public class GunRay : MonoBehaviour {
 		hidePos = new Vector3 (100f, 100f, -10f);
 
         //set gunRay to hide position
-        Invoke("HideRay", 2f);
 		//myTransform.localPosition = hidePos;
 	}
 

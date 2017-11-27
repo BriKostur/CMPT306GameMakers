@@ -11,6 +11,8 @@ TagManager:
   - Button
   - Victory
   - Canvas
+  - Door
+  - Canvas2
   layers:
   - Default
   - TransparentFX
