@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4639367759987706}
   - component: {fileID: 120253947594077906}
   - component: {fileID: 70476215798540674}
-  - component: {fileID: 114084669299757298}
+  - component: {fileID: 114552295754093824}
   m_Layer: 0
   m_Name: GunRay
   m_TagString: GunRay
@@ -57,7 +57,7 @@ CapsuleCollider2D:
   m_Offset: {x: 4, y: 0.2}
   m_Size: {x: 5, y: 0.1}
   m_Direction: 1
---- !u!114 &114084669299757298
+--- !u!114 &114552295754093824
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1767716648679862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 834b8b0f25ee343f7878e458356b0ce2, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b2579d8bd036774fb72c93ecd1d823b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!120 &120253947594077906
