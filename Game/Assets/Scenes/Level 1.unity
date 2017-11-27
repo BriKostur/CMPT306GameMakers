@@ -1257,6 +1257,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4526521602595050, guid: 382d3bf6fc944c544936ec44adbda766,
     type: 2}
   m_PrefabInternal: {fileID: 608909783}
+--- !u!120 &1881558188 stripped
+LineRenderer:
+  m_PrefabParentObject: {fileID: 120650346146604612, guid: 1b6b169e670b0d1459ee7e45872ca5b7,
+    type: 2}
+  m_PrefabInternal: {fileID: 1939108428}
 --- !u!4 &1914930269 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4526521602595050, guid: 382d3bf6fc944c544936ec44adbda766,
@@ -1355,6 +1360,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114234760327107080, guid: 1b6b169e670b0d1459ee7e45872ca5b7,
+        type: 2}
+      propertyPath: line
+      value: 
+      objectReference: {fileID: 1881558188}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b6b169e670b0d1459ee7e45872ca5b7, type: 2}
   m_IsPrefabParent: 0
