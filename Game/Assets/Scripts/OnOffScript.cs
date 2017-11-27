@@ -15,11 +15,14 @@ public class OnOffScript : MonoBehaviour {
 	void Update () {
 		
 	}
-
+    /**
+    // Enables the drag and drop functionality
 	public void enableScript() {
-		dragDrop.enabled = true;
-	}
+		//dragDrop.enabled = true;
+        gameObject.AddComponent<Drag_and_Drop>();
+	}**/
 
+    // Disables the drag and drop functionality
 	public void disableScript() {
 		//Debug.Log ("disabled");
 		//dragDrop.enabled = false;
