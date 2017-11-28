@@ -22,7 +22,7 @@ public class LevelExiter : MonoBehaviour {
 		Scene currentScene = SceneManager.GetActiveScene ();
 		_fadeTransition.initiate (false);
 		if (currentScene.name == "Level 1" || currentScene.name == "Level 2" || currentScene.name == "Level 3" || 
-			currentScene.name == "Level 4" || currentScene.name == "Level 5") {
+			currentScene.name == "Level 4" || currentScene.name == "Level 5" || currentScene.name == "Level 6") {
 			yield return new WaitForSeconds (2);
 			SceneManager.LoadScene ("Pre-Created Levels"); // Name of button must match scene name, otherwise error
 		}
