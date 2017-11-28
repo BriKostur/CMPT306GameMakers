@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16be33b375009b8438d43fd959de1649, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  line: {fileID: 0}
+  line: {fileID: 120575789937196398, guid: b0b7826c1a646004cbf7fb08ffec6de0, type: 2}
   distance: 8
   mask:
     serializedVersion: 2

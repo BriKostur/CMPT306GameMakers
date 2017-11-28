@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayGame : MonoBehaviour {
 
@@ -10,7 +11,10 @@ public class PlayGame : MonoBehaviour {
  
 	// Use this for initialization
 	void Start () {
-        
+        if(File.Exists("Assets/EditScenes/EditScene.json")){
+            load_save script = this.GetComponent<load_save>();
+            script.ReloadLevelEditor();
+        }
 	}
 	
 	// Update is called once per frame

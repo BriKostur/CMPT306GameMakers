@@ -15,6 +15,9 @@ TagManager:
   - Canvas
   - Door
   - Canvas2
+  - GunRay
+  - TextField
+  - NameHolder
   layers:
   - Default
   - TransparentFX
