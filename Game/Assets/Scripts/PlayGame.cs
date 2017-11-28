@@ -21,6 +21,7 @@ public class PlayGame : MonoBehaviour {
         foreach(GameObject obj in objects) {
             if(obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background")
             obj.AddComponent<Drag_and_Drop>();
+            obj.AddComponent<OnOffScript>();
         }
 	}
 	

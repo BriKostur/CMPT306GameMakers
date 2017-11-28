@@ -121,9 +121,9 @@ public class load_save : MonoBehaviour {
 			Camera myCam = Camera.main;
 			myCam.transform.position = new Vector3 (returnInfo [0].getLocX (), returnInfo [0].getLocY (), returnInfo [0].getLocZ ());
 			for (int i = 1; i < returnInfo.Length; i++) {
-				UnityEngine.Object myObj = Resources.Load (returnInfo [i].getPrefabName ());
+                UnityEngine.Object myObj = Resources.Load (returnInfo [i].getPrefabName ());
 				if (myObj != null) {
-					Instantiate (Resources.Load (returnInfo [i].getPrefabName ()),
+                    Instantiate (Resources.Load (returnInfo [i].getPrefabName ()),
 						new Vector3 (returnInfo [i].getLocX (), returnInfo [i].getLocY (), returnInfo [i].getLocZ ()),
                                  Quaternion.Euler(returnInfo[i].getRotX(), returnInfo[i].getRotY(), returnInfo[i].getRotZ()));
 				} else {
