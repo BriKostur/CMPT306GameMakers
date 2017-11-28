@@ -12,14 +12,14 @@ public class LevelButtons : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
-        
+
         PopulateGrid();
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
+        
 	}
 
     void PopulateGrid()
