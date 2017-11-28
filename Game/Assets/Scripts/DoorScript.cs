@@ -28,7 +28,6 @@ public class DoorScript : MonoBehaviour {
 
 	void Open (int cIn){
 		if (cIn == channel) {
-			print("Door opened");
 			this.gameObject.GetComponent<BoxCollider2D> ().isTrigger = true;
 			spr.sprite =Resources.Load<Sprite>("door_openMid");
 		}
