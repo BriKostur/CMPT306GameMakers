@@ -6,7 +6,6 @@ public class BoxDetector: MonoBehaviour {
 	private GameObject[] doors;
 	public int channel;
 	void Start () {
-		doors = GameObject.FindGameObjectsWithTag("Door");
 		switch(channel){
 		case 0:
 			this.gameObject.GetComponent<SpriteRenderer> ().color = Color.red;
@@ -22,6 +21,7 @@ public class BoxDetector: MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D collision)
     {
+		doors = GameObject.FindGameObjectsWithTag("Door");
         if (collision.gameObject.tag == "MMGBox") {
 			for (int i = 0; i < doors.Length; i++) {
 				doors[i].SendMessage ("Open", channel);
