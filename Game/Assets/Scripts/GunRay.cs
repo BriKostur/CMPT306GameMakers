@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +28,7 @@ public class GunRay : MonoBehaviour {
 		//initialize
 		myTransform = GetComponent<Transform>();
 		item = null;
-        oldMan = GameObject.FindGameObjectWithTag ("Player");
+		oldMan = GameObject.Find ("OldMan");
 		timer = 0;
 		rayVisible = false;
 		myLineRend = GetComponent<LineRenderer>();

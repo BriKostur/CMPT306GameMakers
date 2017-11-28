@@ -34,7 +34,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1157227033842138}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.67, y: -0.62, z: 0}
+  m_LocalPosition: {x: -3.67, y: -0.62, z: -100}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,7 +53,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 796c14ed44d572347b0f30d0faace4bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71,10 +71,10 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions:
-  - {x: -4.361333, y: 0.25248894, z: 5}
-  - {x: 0.03, y: 3.04, z: 0}
+  - {x: -10, y: 3, z: 0}
+  - {x: -4.727632, y: 5.2323866, z: 10}
   m_Parameters:
     serializedVersion: 2
     widthMultiplier: 2
@@ -83,7 +83,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.17015839
+        value: 0.16397095
         inSlope: 0
         outSlope: 0
         tangentMode: 0

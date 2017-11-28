@@ -10,7 +10,9 @@ TagManager:
   - MagBoots
   - Button
   - Victory
-  - Fade
+  - Door
+  - GravPlat
+  - Canvas
   layers:
   - Default
   - TransparentFX
