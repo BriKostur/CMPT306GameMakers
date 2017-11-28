@@ -21,7 +21,7 @@ public class Gun : MonoBehaviour {
 
 	void Update () {
 		//get character direction to face gun the correct way
-        float manDir=  GameObject.FindGameObjectWithTag ("Player").GetComponent<Rigidbody2D>().velocity.x;
+		float manDir=  GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController>().currSpeed;
 
 		//if character facing right or forward and gun is facing left
 		if (manDir >= 0 && flipped) {

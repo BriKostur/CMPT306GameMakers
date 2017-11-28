@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 	public float minVel = 4;
     public float moveSpeed;
     public float jumpHeight;
+	public float currSpeed; // For use in animatons
     private Animator anime;
 	private bool right;
 	private bool inAir; // Flag to prevent the player from jumping infinitely
@@ -63,7 +64,8 @@ public class PlayerController : MonoBehaviour
 		GetComponent<Rigidbody2D>().AddForce(moveVec);
 
 		//Handle walking animation
-		anime.SetFloat("Speed", (phys.velocity.y*transform.right.y + phys.velocity.x*transform.right.x));
+		currSpeed =(phys.velocity.y*transform.right.y + phys.velocity.x*transform.right.x);
+		anime.SetFloat("Speed", currSpeed);
 
 		//Handle Jumping/Falling animation
 		if (phys.velocity.y*transform.up.y + phys.velocity.x*transform.up.x>1||phys.velocity.y*transform.up.y + phys.velocity.x*transform.up.x<-1) {

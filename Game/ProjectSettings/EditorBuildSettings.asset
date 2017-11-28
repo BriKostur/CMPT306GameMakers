@@ -17,3 +17,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadScene.unity
     guid: 05aed937cf4bf4e38948572ff1456e4d
+  - enabled: 1
+    path: Assets/Scenes/Title Screen.unity
+    guid: cd1673c34aad24041aabac68eef7a16f
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 18f69bc667f46ce4dafcc306eb852563
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 6c93ea8d56c4e2545bc9bda5b988f997
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 665d552a81461034cb62eed555e11f5c
+  - enabled: 1
+    path: Assets/Scenes/Level 4.unity
+    guid: 6460b48ad4e40da4083865ccb259457d
+  - enabled: 1
+    path: Assets/Scenes/Level 5.unity
+    guid: bca837c69cef1aa4a8a89742a4f7eb5e
+  - enabled: 1
+    path: Assets/Scenes/Level 6.unity
+    guid: 87b80282e45ebd743a2600fa1ecd99ac
+  - enabled: 1
+    path: Assets/Scenes/Pre-Created Levels.unity
+    guid: 91f20df539eafae43a579f5e5cdbd385
+  - enabled: 1
+    path: Assets/Scenes/Title Screen - Controls.unity
+    guid: 29648c479c5b0f94b81edd97467e4f23
+  - enabled: 1
+    path: Assets/Scenes/User-Created Levels.unity
+    guid: ca7b0d5fded7e3a46b590b9f5abcc28c
