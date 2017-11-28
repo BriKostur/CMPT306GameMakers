@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class PlayGame : MonoBehaviour {
 
@@ -15,6 +16,11 @@ public class PlayGame : MonoBehaviour {
             load_save script = this.GetComponent<load_save>();
             script.ReloadLevelEditor();
         }
+
+        GameObject[] objects = SceneManager.GetSceneByName("Level Editor").GetRootGameObjects();
+        foreach(GameObject obj in objects) {
+            obj.AddComponent<Drag_and_Drop>();
+        }
 	}
 	
 	// Update is called once per frame
@@ -23,10 +29,13 @@ public class PlayGame : MonoBehaviour {
 	}
 
 	public void Play() {
+        // If the flag is not null, send a message to the EndTrigger script that the game is playing
         flag = GameObject.FindGameObjectWithTag("Victory");
         if (flag != null) {
+            
             flag.SendMessage("SetPlaying", true, SendMessageOptions.DontRequireReceiver);
         }
+
 
         // Stores all game objects then loops to turn off the drag and drop functionality
 		GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
@@ -34,7 +43,7 @@ public class PlayGame : MonoBehaviour {
 			go.SendMessage("disableScript", SendMessageOptions.DontRequireReceiver);
 		}
 
-        // Removes the movement constraints, of certain objects, that are present due to the level editor
+        // Removes the movement constraints, of certain objects (mmg box and player), that are present due to the level editor
 		GameObject player = GameObject.FindGameObjectWithTag ("Player");
         GameObject box = GameObject.FindGameObjectWithTag("MMGBox");
         if(player != null) {
@@ -49,7 +58,7 @@ public class PlayGame : MonoBehaviour {
             r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        // Turns off the canvas
+        // Turns off the main canvas
 		levelEdit.GetComponent<Canvas> ().enabled = false;
 	}
 }

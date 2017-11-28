@@ -22,9 +22,10 @@ public class EndTrigger : MonoBehaviour {
         isPlaying = state;
     }
 
+    // Check for trigger collision
     void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log(isPlaying);
+        // Check if playing is true in the editor, check for trigger collision with the player, then show the end menu
         if (isPlaying == true) {
             
             if (coll.gameObject.tag == "Player")

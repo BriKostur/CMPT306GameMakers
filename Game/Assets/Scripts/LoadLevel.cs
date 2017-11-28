@@ -10,6 +10,7 @@ public class LoadLevel : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        // Find the blank object that holds the string for the custom level name
         nameChange = GameObject.FindGameObjectWithTag("NameHolder");
 	}
 	
@@ -20,6 +21,7 @@ public class LoadLevel : MonoBehaviour {
 
     public void Transition()
     {
+        // Procedure for getting the name of the NameHolder object and moving the object to the custom level
         Button nameButton = gameObject.GetComponent<Button>();
         string temp = nameButton.GetComponentInChildren<Text>().text;
         nameChange.name = temp;

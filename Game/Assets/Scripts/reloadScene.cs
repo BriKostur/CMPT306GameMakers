@@ -15,6 +15,7 @@ public class reloadScene : MonoBehaviour {
 		
 	}
 
+    // Reloading the scene
     public void resetScene() {
         SceneManager.LoadScene("Level Editor");
     }
