@@ -1,27 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class PlayGame : MonoBehaviour {
 
 	Rigidbody2D r_body;
 	public Canvas levelEdit;
-
-    //private bool playing;
-
+    GameObject flag;
+ 
 	// Use this for initialization
 	void Start () {
+        if(File.Exists("Assets/EditScenes/EditScene.json")){
+            load_save script = this.GetComponent<load_save>();
+            script.ReloadLevelEditor();
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        /**
-        if (Input.GetKeyDown(KeyCode.Escape) && playing == true) {
-            Paused();
-        }**/
+        
 	}
 
 	public void Play() {
+        flag = GameObject.FindGameObjectWithTag("Victory");
+        if (flag != null) {
+            flag.SendMessage("SetPlaying", true, SendMessageOptions.DontRequireReceiver);
+        }
+
         // Stores all game objects then loops to turn off the drag and drop functionality
 		GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
 		foreach (GameObject go in allObjects) {
@@ -45,24 +51,5 @@ public class PlayGame : MonoBehaviour {
 
         // Turns off the canvas
 		levelEdit.GetComponent<Canvas> ().enabled = false;
-        //playing = true;
-
 	}
-    /**
-    public void Paused() {
-        levelEdit.GetComponent<Canvas>().enabled = true;
-
-        // Stores all game objects then loops to turn off the drag and drop functionality
-        GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
-        foreach (GameObject go in allObjects)
-        {
-            if(go.tag != "MainCamera") {
-                go.SendMessage("enableScript", SendMessageOptions.DontRequireReceiver);
-                r_body = go.GetComponent<Rigidbody2D>();
-                r_body.constraints = RigidbodyConstraints2D.FreezeAll;
-            }
-        }
-        playing = false;
-    }
-**/
 }

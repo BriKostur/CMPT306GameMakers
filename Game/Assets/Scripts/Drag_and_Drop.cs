@@ -34,6 +34,7 @@ public class Drag_and_Drop : MonoBehaviour {
 			Instantiate (this, new Vector2 (-10, 3), toInst.transform.rotation);
 		} else {
 			temp =(GameObject)Instantiate (toInst, new Vector2 (-10, 3), toInst.transform.rotation);
+            temp.name = toInst.name;
 			temp.AddComponent<Drag_and_Drop> ();
             temp.AddComponent<OnOffScript>();
 			if (temp.GetComponent<Rigidbody2D> () != null) {
