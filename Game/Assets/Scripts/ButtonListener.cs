@@ -25,10 +25,14 @@ public class ButtonListener : MonoBehaviour {
 		
 	void OnMouseUp() {
 		if (insideButtonBounds == true) {
-			//rend.material.color = new Color (0, 0, 0, Mathf.Lerp (0, 255));
+			StartCoroutine("fadeCall");
 			SceneManager.LoadScene (gameObject.name); // Name of button must match scene name, otherwise crash
 			Debug.Log(gameObject.name);
 		}
+	}
+
+	IEnumerator fadeCall() {
+		yield return new WaitForSeconds (3);
 	}
 }
 

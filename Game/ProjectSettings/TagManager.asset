@@ -10,6 +10,7 @@ TagManager:
   - MagBoots
   - Button
   - Victory
+  - Fade
   layers:
   - Default
   - TransparentFX
