@@ -19,6 +19,7 @@ public class PlayGame : MonoBehaviour {
 
         GameObject[] objects = SceneManager.GetSceneByName("Level Editor").GetRootGameObjects();
         foreach(GameObject obj in objects) {
+            if(obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background")
             obj.AddComponent<Drag_and_Drop>();
         }
 	}
