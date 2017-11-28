@@ -104,7 +104,7 @@ public class load_save : MonoBehaviour {
                     Debug.Log(returnInfo[i].getRotX());
 					Instantiate (Resources.Load (returnInfo [i].getPrefabName ()),
 						new Vector3 (returnInfo [i].getLocX (), returnInfo [i].getLocY (), returnInfo [i].getLocZ ()),
-                                 Quaternion.Euler(returnInfo[i].getRotX(), returnInfo [i].getRotY (), returnInfo [i].getRotZ ()));
+                                 new Quaternion(returnInfo[i].getRotX(), returnInfo [i].getRotY (), returnInfo [i].getRotZ (), returnInfo[i].getRotW()));
 				} else {
 					Debug.Log ("null at index " + i + " name " + returnInfo [i].getPrefabName ());
 				}
@@ -125,7 +125,7 @@ public class load_save : MonoBehaviour {
 				if (myObj != null) {
                     Instantiate (Resources.Load (returnInfo [i].getPrefabName ()),
 						new Vector3 (returnInfo [i].getLocX (), returnInfo [i].getLocY (), returnInfo [i].getLocZ ()),
-                                 Quaternion.Euler(returnInfo[i].getRotX(), returnInfo[i].getRotY(), returnInfo[i].getRotZ()));
+                                 new Quaternion(returnInfo[i].getRotX(), returnInfo[i].getRotY(), returnInfo[i].getRotZ(),returnInfo[i].getRotW()));
 				} else {
 					Debug.Log ("null at index " + i + " name " + returnInfo [i].getPrefabName ());
 				}
