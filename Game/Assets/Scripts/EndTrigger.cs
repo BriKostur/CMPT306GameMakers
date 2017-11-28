@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class EndTrigger : MonoBehaviour {
 
@@ -24,13 +26,35 @@ public class EndTrigger : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log(isPlaying);
-        if (isPlaying == true) {
-            
-            if (coll.gameObject.tag == "Player")
+        
+
+        if (SceneManager.GetActiveScene().name == "Level Editor")
+        {
+            Debug.Log(isPlaying);
+            if (isPlaying == true)
             {
-                cam.SendMessage("ShowEndMenu");
+
+                if (coll.gameObject.tag == "Player")
+                {
+                    cam.SendMessage("ShowEndMenu");
+                        this.GetComponent<AudioSource>().Play();
+                    
+                }
             }
         }
+
+        else
+        {
+            if (coll.gameObject.tag == "Player")
+            {
+                this.GetComponent<AudioSource>().Play();
+            }
+            Invoke("backToTitleScreen", 2);
+        }
+    }
+
+    void backToTitleScreen()
+    {
+        SceneManager.LoadScene("Title Screen");
     }
 }

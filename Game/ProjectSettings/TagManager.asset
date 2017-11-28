@@ -18,6 +18,7 @@ TagManager:
   - GunRay
   - TextField
   - NameHolder
+  - Win
   layers:
   - Default
   - TransparentFX
