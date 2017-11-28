@@ -39,5 +39,8 @@ public class FadeTransition : MonoBehaviour
 			transparency = Mathf.Lerp (1f, 0f, interpolationValue);
 		}
 		image.color = new Color (imageColor.r, imageColor.g, imageColor.b, transparency);
-	}
+
+        Physics2D.gravity = new Vector2(0, -9.81f);
+
+    }
 }
