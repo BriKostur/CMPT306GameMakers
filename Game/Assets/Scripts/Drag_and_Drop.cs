@@ -37,9 +37,9 @@ public class Drag_and_Drop : MonoBehaviour {
             temp.name = toInst.name;
 			temp.AddComponent<Drag_and_Drop> ();
             temp.AddComponent<OnOffScript>();
-			if (temp.GetComponent<Rigidbody2D> () != null) {
-				temp.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
-			}
+			//if (temp.GetComponent<Rigidbody2D> () != null) {
+			//	temp.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
+			//}
 		}
 	}
 }

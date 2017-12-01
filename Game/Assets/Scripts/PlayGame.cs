@@ -27,7 +27,18 @@ public class PlayGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+		if (Input.GetKeyDown (KeyCode.P)) {
+			GameObject[] objects = SceneManager.GetSceneByName ("Level Editor").GetRootGameObjects ();
+			foreach (GameObject obj in objects) {
+				if (obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background")
+					obj.AddComponent<Drag_and_Drop> ();
+				obj.AddComponent<OnOffScript> ();
+				if (obj.GetComponent<Rigidbody2D> () != null) {
+					obj.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
+				}
+			}
+			Debug.Log ("It enabled?");
+		}
 	}
 
 	public void Play() {
@@ -37,8 +48,7 @@ public class PlayGame : MonoBehaviour {
             
             flag.SendMessage("SetPlaying", true, SendMessageOptions.DontRequireReceiver);
         }
-
-
+			
         // Stores all game objects then loops to turn off the drag and drop functionality
 		GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
 		foreach (GameObject go in allObjects) {
