@@ -28,4 +28,5 @@ public class OnOffScript : MonoBehaviour {
 		//dragDrop.enabled = false;
 		Destroy(dragDrop);
 	}
+		
 }
