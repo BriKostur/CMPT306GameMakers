@@ -17,15 +17,19 @@ public class DisableEditorElements : MonoBehaviour {
 
         // Removes the players movement constraints that are present due to the level editor
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        r_body = player.GetComponent<Rigidbody2D>();
-        r_body.constraints = RigidbodyConstraints2D.None;
-        r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if(player != null) {
+            r_body = player.GetComponent<Rigidbody2D>();
+            r_body.constraints = RigidbodyConstraints2D.None;
+            r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
 
         // Removes the mmgbox's movement constraints that are present due to the level editor
         GameObject[] box = GameObject.FindGameObjectsWithTag("MMGBox");
-        r_body = player.GetComponent<Rigidbody2D>();
-        r_body.constraints = RigidbodyConstraints2D.None;
-        r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        foreach (GameObject obj in box) {
+            r_body = obj.GetComponent<Rigidbody2D>();
+            r_body.constraints = RigidbodyConstraints2D.None;
+            r_body.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
 	}
 	
 	// Update is called once per frame
