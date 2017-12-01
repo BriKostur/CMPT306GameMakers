@@ -45,4 +45,8 @@ public class Drag_and_Drop : MonoBehaviour {
 			}
 		}
 	}
+
+	public void clearSelf(){
+		Destroy (this.gameObject);
+	}
 }
