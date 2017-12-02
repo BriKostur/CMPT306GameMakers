@@ -14,6 +14,8 @@ public class ButtonListener : MonoBehaviour {
 	void OnMouseEnter() {
 		insideButtonBounds = true;
 		rend.material.color = Color.yellow;
+		AudioSource selectClick = GetComponent<AudioSource> ();
+		selectClick.Play ();
 	}
 
 	void OnMouseExit() {

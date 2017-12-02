@@ -19,6 +19,7 @@ TagManager:
   - TextField
   - NameHolder
   - Background
+  - Level Editor Music
   layers:
   - Default
   - TransparentFX
