@@ -969,7 +969,7 @@ GameObject:
   - component: {fileID: 713442812}
   - component: {fileID: 713442811}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1159,6 +1159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeTransition: {fileID: 1471924803}
   levelEdit: {fileID: 0}
+  fade: {fileID: 713442813}
 --- !u!4 &811151265 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4526521602595050, guid: 40ffafeae3dca7244a194bded965026d,
