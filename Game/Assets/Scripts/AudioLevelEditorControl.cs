@@ -13,9 +13,6 @@ public class AudioLevelEditorControl : MonoBehaviour {
 	float slowDownFactor = 1.21587f; // Speed factor adjustment to go fast -> slow
 	float speedUpFactor = 0.82246f; // Speed factor adjustment to go slow -> fast
 
-	float fadeRate = 3.0f;
-	float interpolationValue = 0.0f;
-	float fadedVolume;
 	bool fadeAudioOut = false;
 
 	// Use this for initialization
@@ -25,7 +22,11 @@ public class AudioLevelEditorControl : MonoBehaviour {
 
 	void Update() {
 		if (fadeAudioOut == true) {
-			audioFade ();
+			if (slow.isPlaying == true) {
+				this.GetComponent<AudioFadeOut> ().audioFade (slow);
+			} else {
+				this.GetComponent<AudioFadeOut> ().audioFade (fast);
+			}
 		}
 	}
 
@@ -40,7 +41,6 @@ public class AudioLevelEditorControl : MonoBehaviour {
 		}
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			fadeAudioOut = true;
-			Debug.Log (fadeAudioOut);
 		}
 	}
 
@@ -63,30 +63,5 @@ public class AudioLevelEditorControl : MonoBehaviour {
 		slow.time = playTime;
 		slow.Play ();
 	}
-
-	void audioFade() {
-		interpolationValue += Time.deltaTime * fadeRate;
-		fadedVolume = Mathf.Lerp (1f, 0f, interpolationValue);
-		slow.volume = fadedVolume;
-
-		// Modify interpolation values to emulate a more realistic fade-out
-		if (slow.volume >= 0.4f && slow.volume < 0.5f) {
-			fadeRate = 1.0f;
-		}
-		if (slow.volume >= 0.3f && slow.volume < 0.4f) {
-			fadeRate = 0.8f;
-		}
-		if (slow.volume >= 0.2f && slow.volume < 0.3f) {
-			fadeRate = 0.6f;
-		}
-		if (slow.volume >= 0.1f && slow.volume < 0.2f) {
-			fadeRate = 0.4f;
-		}
-		if (slow.volume >= 0.03f && slow.volume < 0.1f) {
-			fadeRate = 0.1f;
-		}
-		if (slow.volume < 0.03f) {
-			fadeRate = 0.05f;
-		}
-	}
+		
 }

@@ -10,7 +10,6 @@ TagManager:
   - MagBoots
   - Button
   - Victory
-  - Door
   - GravPlat
   - Canvas
   - Door
@@ -19,7 +18,7 @@ TagManager:
   - TextField
   - NameHolder
   - Background
-  - Level Editor Music
+  - TitleScreenAudioController
   layers:
   - Default
   - TransparentFX
