@@ -221,6 +221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fadeTransition: {fileID: 1364025824}
   levelEdit: {fileID: 0}
+  fade: {fileID: 1583567695}
 --- !u!1001 &314848704
 Prefab:
   m_ObjectHideFlags: 0
@@ -1207,7 +1208,7 @@ GameObject:
   - component: {fileID: 1583567694}
   - component: {fileID: 1583567693}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas Fade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

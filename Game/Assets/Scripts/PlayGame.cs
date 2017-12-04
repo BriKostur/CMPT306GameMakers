@@ -9,6 +9,7 @@ public class PlayGame : MonoBehaviour {
 	Rigidbody2D r_body;
 	public Canvas levelEdit;
     GameObject flag;
+	GameObject musicSpeedControl;
  
 	// Use this for initialization
 	void Start () {
@@ -28,16 +29,19 @@ public class PlayGame : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.P)) {
-			GameObject[] objects = SceneManager.GetSceneByName ("Level Editor").GetRootGameObjects ();
-			foreach (GameObject obj in objects) {
-				if (obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background")
-					obj.AddComponent<Drag_and_Drop> ();
-				obj.AddComponent<OnOffScript> ();
-				if (obj.GetComponent<Rigidbody2D> () != null) {
-					obj.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
+			if (levelEdit.enabled != true) {
+				GameObject[] objects = SceneManager.GetSceneByName ("Level Editor").GetRootGameObjects ();
+				foreach (GameObject obj in objects) {
+					if (obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background")
+						obj.AddComponent<Drag_and_Drop> ();
+					obj.AddComponent<OnOffScript> ();
+					if (obj.GetComponent<Rigidbody2D> () != null) {
+						obj.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
+					}
 				}
+				levelEdit.enabled = true;
+				musicSpeedControl.SendMessage ("slowAudio", SendMessageOptions.DontRequireReceiver);
 			}
-			Debug.Log ("It enabled?");
 		}
 	}
 
@@ -72,5 +76,8 @@ public class PlayGame : MonoBehaviour {
 
         // Turns off the main canvas
 		levelEdit.GetComponent<Canvas> ().enabled = false;
+
+		musicSpeedControl = GameObject.FindGameObjectWithTag("Level Editor Music");
+		musicSpeedControl.SendMessage("fastAudio", SendMessageOptions.DontRequireReceiver);
 	}
 }

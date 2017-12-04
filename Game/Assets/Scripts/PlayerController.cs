@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 	Vector2 moveVec;
 	Vector2 curVec;
 	Rigidbody2D phys;
+	public AudioSource jumpSound;
 
 	public float maxVel = 16;
 	public float minVel = 4;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
 	private bool inAir; // Flag to prevent the player from jumping infinitely
 	public bool canGrav;
 	//public Transform warpDestination;
+	public bool playJumpSound = false;
 	
     // Use this for initialization
     void Start()
@@ -42,6 +44,7 @@ public class PlayerController : MonoBehaviour
         {
 			phys.velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x + jumpHeight * transform.up.x, GetComponent<Rigidbody2D>().velocity.y + jumpHeight * transform.up.y);
 			inAir = true;
+			playJumpSound = true;
         }
 
 		//Walk code
@@ -72,6 +75,12 @@ public class PlayerController : MonoBehaviour
 			anime.SetBool ("Jump", true);
 		} else {
 			anime.SetBool ("Jump", false);
+		}
+
+		// Play jump sound
+		if (playJumpSound == true) {
+			playJumpSound = false;
+			jumpSound.Play ();
 		}
     }
 	 void OnCollisionStay2D (Collision2D collisionInfo)
