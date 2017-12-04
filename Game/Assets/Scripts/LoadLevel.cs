@@ -12,6 +12,7 @@ public class LoadLevel : MonoBehaviour {
 	void Start () {
         // Find the blank object that holds the string for the custom level name
         nameChange = GameObject.FindGameObjectWithTag("NameHolder");
+		Debug.Log (nameChange.name);
 	}
 	
 	// Update is called once per frame
@@ -26,6 +27,12 @@ public class LoadLevel : MonoBehaviour {
         string temp = nameButton.GetComponentInChildren<Text>().text;
         nameChange.name = temp;
         DontDestroyOnLoad(nameChange);
-        SceneManager.LoadScene("LoadScene");
+		StartCoroutine (WaitForFades ());
     }
+
+	// Coroutine to add delay for fade effects to complete before switching scenes
+	IEnumerator WaitForFades() {
+		yield return new WaitForSeconds (2);
+		SceneManager.LoadScene ("LoadScene");
+	}
 }

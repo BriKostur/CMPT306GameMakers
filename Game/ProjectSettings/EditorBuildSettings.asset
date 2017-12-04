@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level Editor.unity
     guid: cae40639bb9b84cc9a1a277529eeceb0
-  - enabled: 0
-    path: 
-    guid: 97f3ec0e349a649b0b77cf4636ef2d81
   - enabled: 1
     path: Assets/Scenes/FakeMainMenu.unity
     guid: d8a664d9571934601b53bd23f2db9256
@@ -38,12 +35,3 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 6.unity
     guid: 87b80282e45ebd743a2600fa1ecd99ac
-  - enabled: 1
-    path: Assets/Scenes/Pre-Created Levels.unity
-    guid: 91f20df539eafae43a579f5e5cdbd385
-  - enabled: 1
-    path: Assets/Scenes/Title Screen - Controls.unity
-    guid: 29648c479c5b0f94b81edd97467e4f23
-  - enabled: 1
-    path: Assets/Scenes/User-Created Levels.unity
-    guid: ca7b0d5fded7e3a46b590b9f5abcc28c
