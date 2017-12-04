@@ -19,10 +19,11 @@ public class PlayGame : MonoBehaviour {
         }
 
         GameObject[] objects = SceneManager.GetSceneByName("Level Editor").GetRootGameObjects();
-        foreach(GameObject obj in objects) {
-            if(obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background")
-            obj.AddComponent<Drag_and_Drop>();
-            obj.AddComponent<OnOffScript>();
+		foreach (GameObject obj in objects) {
+			if (obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background" && obj.tag != "Level Editor Music") {
+				obj.AddComponent<Drag_and_Drop> ();
+				obj.AddComponent<OnOffScript> ();
+			}
         }
 	}
 	
@@ -32,9 +33,10 @@ public class PlayGame : MonoBehaviour {
 			if (levelEdit.enabled != true) {
 				GameObject[] objects = SceneManager.GetSceneByName ("Level Editor").GetRootGameObjects ();
 				foreach (GameObject obj in objects) {
-					if (obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background")
+					if (obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background" && obj.tag != "Level Editor Music") {
 						obj.AddComponent<Drag_and_Drop> ();
-					obj.AddComponent<OnOffScript> ();
+						obj.AddComponent<OnOffScript> ();
+					}
 					if (obj.GetComponent<Rigidbody2D> () != null) {
 						obj.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
 					}

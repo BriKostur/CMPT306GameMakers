@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class LoadLevel : MonoBehaviour {
 
     GameObject nameChange;
+	GameObject bgmusic;
+	GameObject bgfade;
 
 	// Use this for initialization
 	void Start () {
@@ -32,8 +34,13 @@ public class LoadLevel : MonoBehaviour {
 
 	// Coroutine to add delay for fade effects to complete before switching scenes
 	IEnumerator WaitForFades() {
-		//yield return new WaitForSeconds (2);
-		yield return new WaitForSeconds(0);
+		bgmusic = GameObject.FindGameObjectWithTag("Level Editor Music");
+		bgmusic.SendMessage ("initiate", SendMessageOptions.DontRequireReceiver);
+		bgfade = GameObject.Find ("Canvas Fade");
+		bgfade.GetComponent<Canvas> ().enabled = true;
+		bgfade = GameObject.Find ("Image Fade");
+		bgfade.SendMessage ("initiateUCLFade", SendMessageOptions.DontRequireReceiver);
+		yield return new WaitForSeconds(2);
 		SceneManager.LoadScene ("LoadScene");
 	}
 }

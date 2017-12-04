@@ -31,5 +31,6 @@ public class AudioTitleScreenControl : MonoBehaviour {
 
 	public void initiate() {
 		isFading = true;
+		Debug.Log ("Message received from LoadLevel.cs");
 	}
 }

@@ -30,6 +30,11 @@ public class FadeTransition : MonoBehaviour
 		fadeOut = val;
 	}
 
+	// Bandaid fix for UCL fade
+	public void initiateUCLFade() {
+		isFading = true;
+	}
+
 	public void FadeImage()
 	{
 		interpolationValue += Time.deltaTime * fadeRate;

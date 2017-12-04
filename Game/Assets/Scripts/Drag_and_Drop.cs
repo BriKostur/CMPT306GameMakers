@@ -29,6 +29,7 @@ public class Drag_and_Drop : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Delete)) {
 			Destroy (this.gameObject);
 		}
+
 	}
 
     // Spawns the objects with associated scripts when their related UI buttons are clicked
@@ -49,4 +50,5 @@ public class Drag_and_Drop : MonoBehaviour {
 	public void clearSelf(){
 		Destroy (this.gameObject);
 	}
+
 }
