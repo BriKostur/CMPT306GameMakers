@@ -32,7 +32,8 @@ public class LoadLevel : MonoBehaviour {
 
 	// Coroutine to add delay for fade effects to complete before switching scenes
 	IEnumerator WaitForFades() {
-		yield return new WaitForSeconds (2);
+		//yield return new WaitForSeconds (2);
+		yield return new WaitForSeconds(0);
 		SceneManager.LoadScene ("LoadScene");
 	}
 }
