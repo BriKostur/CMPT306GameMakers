@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-//using UnityEditor;
+using UnityEditor;
 using System;
 using System.IO;
 using UnityEngine.UI;
@@ -57,8 +57,8 @@ public class load_save : MonoBehaviour {
 		for (int i = 0; i < size; i++) {
 			if (gameObjects [i].tag != "Canvas") {
 				object_info myInfo = new object_info ();
-				//GameObject prefab = PrefabUtility.FindPrefabRoot (gameObjects [i]);
-				GameObject prefab = gameObjects [i];
+				GameObject prefab = PrefabUtility.FindPrefabRoot (gameObjects [i]);
+				//GameObject prefab = gameObjects [i];
                 Debug.Log(prefab.name);
 				myInfo.setName (prefab.name);
 				myInfo.setLocX (gameObjects [i].transform.position.x);
@@ -73,7 +73,7 @@ public class load_save : MonoBehaviour {
 		}
 		jsonString = JsonHelper.ToJson (info);
 		File.WriteAllText (tempFilePath, jsonString);
-		//AssetDatabase.Refresh ();
+		AssetDatabase.Refresh ();
 
 
 	}
@@ -85,9 +85,9 @@ public class load_save : MonoBehaviour {
         if(mainInput.text != "") {
             string dataAsJson = File.ReadAllText(tempFilePath);
             File.WriteAllText(myFilePath + mainInput.text + ".json", dataAsJson);
-          //  AssetDatabase.DeleteAsset(tempFilePath);
+            AssetDatabase.DeleteAsset(tempFilePath);
 
-            //AssetDatabase.Refresh();
+            AssetDatabase.Refresh();
         }
 	}
 
