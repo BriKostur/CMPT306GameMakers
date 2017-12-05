@@ -10,6 +10,7 @@ public class PlayGame : MonoBehaviour {
 	public Canvas levelEdit;
     GameObject flag;
 	GameObject musicSpeedControl;
+	public bool isPlaying = false;
  
 	// Use this for initialization
 	void Start () {
@@ -37,6 +38,7 @@ public class PlayGame : MonoBehaviour {
 	}
 
 	public void Stop() {
+		isPlaying = false;
 		GameObject[] objects = SceneManager.GetSceneByName ("Level Editor").GetRootGameObjects ();
 		foreach (GameObject obj in objects) {
 			if (obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background" && obj.tag != "Level Editor Music") {
@@ -52,6 +54,7 @@ public class PlayGame : MonoBehaviour {
 	}
 
 	public void Play() {
+		isPlaying = true;
         // If the flag is not null, send a message to the EndTrigger script that the game is playing
         flag = GameObject.FindGameObjectWithTag("Victory");
         if (flag != null) {

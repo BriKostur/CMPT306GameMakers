@@ -39,9 +39,13 @@ public class AudioLevelEditorControl : MonoBehaviour {
 			fast.time = 53.834f; // Loop position
 			fast.Play ();
 		}
-		if (Input.GetKeyDown (KeyCode.Escape)) {
-			fadeAudioOut = true;
-		}
+		//if (Input.GetKeyDown (KeyCode.Escape)) {
+		//	fadeAudioOut = true;
+		//}
+	}
+
+	public void trigger() {
+		fadeAudioOut = true;
 	}
 
 	// Switch to fast (pressed "Play" in editor)
