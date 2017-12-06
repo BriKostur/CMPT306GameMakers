@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Jump code
-		if (Input.GetKeyDown(KeyCode.Space)&&!inAir)
+        if (Input.GetKeyDown(KeyCode.Space) &&!inAir ||  Input.GetKeyDown(KeyCode.W) && !inAir)
         {
 			phys.velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x + jumpHeight * transform.up.x, GetComponent<Rigidbody2D>().velocity.y + jumpHeight * transform.up.y);
 			inAir = true;

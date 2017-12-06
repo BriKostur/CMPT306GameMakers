@@ -669,7 +669,7 @@ Prefab:
     - target: {fileID: 114165804837503932, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 30
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 224795747570909562, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
@@ -772,17 +772,17 @@ Prefab:
     - target: {fileID: 114718559200400586, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
       propertyPath: m_Colors.m_HighlightedColor.r
-      value: 0.9843137
+      value: 0.8602941
       objectReference: {fileID: 0}
     - target: {fileID: 114718559200400586, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
       propertyPath: m_Colors.m_HighlightedColor.g
-      value: 1
+      value: 0.95953345
       objectReference: {fileID: 0}
     - target: {fileID: 114718559200400586, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
       propertyPath: m_Colors.m_HighlightedColor.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114691942536373014, guid: a210ed65d58574bada35763ddf5c943c,
         type: 2}
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 212817826}
   m_HandleRect: {fileID: 212817825}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2416,8 +2416,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1481020579}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -491.776, y: -487.743, z: 0}
-  m_LocalScale: {x: 2.3177779, y: 2.1438491, z: 1}
+  m_LocalPosition: {x: -491.77, y: -487.85, z: 0}
+  m_LocalScale: {x: 2.4065633, y: 2.2227693, z: 1}
   m_Children: []
   m_Father: {fileID: 595548903}
   m_RootOrder: 0
@@ -2493,7 +2493,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 17
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -3004,7 +3004,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: 0.9843137, g: 1, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.85882354, g: 0.9607843, b: 1, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -3519,8 +3519,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2108686097}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -491.811, y: -496.45, z: 0}
-  m_LocalScale: {x: 2.566329, y: 1, z: 1}
+  m_LocalPosition: {x: -491.91, y: -496.66, z: 0}
+  m_LocalScale: {x: 2.6642985, y: 1.0746351, z: 1}
   m_Children: []
   m_Father: {fileID: 595548903}
   m_RootOrder: 3
