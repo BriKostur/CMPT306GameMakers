@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
 	Vector2 moveVec;
 	Vector2 curVec;
 	Rigidbody2D phys;
+    GameObject canvas; // For finding the canvas for restarting the level on death fall
 
 	public float maxVel = 16;
 	public float minVel = 4;
@@ -25,6 +27,7 @@ public class PlayerController : MonoBehaviour
 		phys = GetComponent<Rigidbody2D> ();
 		//gameObject.transform.position = warpDestination.position; // Set spawn point
         anime = GetComponent<Animator>();
+        canvas = GameObject.Find("RestartButton");
     }
 	
     private void FixedUpdate()
@@ -38,7 +41,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Jump code
-		if (Input.GetKeyDown(KeyCode.Space)&&!inAir)
+        if (Input.GetKeyDown(KeyCode.Space)&&!inAir || Input.GetKeyDown(KeyCode.W) && !inAir)
         {
 			phys.velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x + jumpHeight * transform.up.x, GetComponent<Rigidbody2D>().velocity.y + jumpHeight * transform.up.y);
 			inAir = true;
@@ -73,7 +76,21 @@ public class PlayerController : MonoBehaviour
 		} else {
 			anime.SetBool ("Jump", false);
 		}
+
+        // Check for player death fall
+        if (this.gameObject.transform.position.y < -12.2)
+        {
+            // this only applies to the level editor since there is no canvas objects out side of the level builder
+            if (canvas != null)
+            {
+                canvas.GetComponent<reloadScene>().resetScene();
+            } else {
+                // this is for pre-built levels and levels loaded outside of the level editor
+                SceneManager.LoadScene("Pre-Created Levels");
+            }
+        }
     }
+
 	 void OnCollisionStay2D (Collision2D collisionInfo)
  	{
 		inAir = false;
