@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 	Vector2 moveVec;
 	Vector2 curVec;
 	Rigidbody2D phys;
-    GameObject canvas; // For finding the canvas for restarting the level on death fall
+	public AudioSource jumpSound;
 
 	public float maxVel = 16;
 	public float minVel = 4;
@@ -19,7 +19,10 @@ public class PlayerController : MonoBehaviour
 	private bool right;
 	private bool inAir; // Flag to prevent the player from jumping infinitely
 	public bool canGrav;
+	public int directionFacing; // Determine direction character is facing to point gun the correct way (0 is left, 1 is right, relative to character);
 	//public Transform warpDestination;
+	public bool playJumpSound = false;
+	GameObject levelEditorCam; // Used to find camera of level editor to invoke Stop() in PlayGame.cs
 	
     // Use this for initialization
     void Start()
@@ -27,7 +30,7 @@ public class PlayerController : MonoBehaviour
 		phys = GetComponent<Rigidbody2D> ();
 		//gameObject.transform.position = warpDestination.position; // Set spawn point
         anime = GetComponent<Animator>();
-        canvas = GameObject.Find("RestartButton");
+		directionFacing = 1;
     }
 	
     private void FixedUpdate()
@@ -41,16 +44,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Jump code
-        if (Input.GetKeyDown(KeyCode.Space)&&!inAir || Input.GetKeyDown(KeyCode.W) && !inAir)
+		if (Input.GetKeyDown(KeyCode.Space)&&!inAir)
         {
 			phys.velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x + jumpHeight * transform.up.x, GetComponent<Rigidbody2D>().velocity.y + jumpHeight * transform.up.y);
 			inAir = true;
+			playJumpSound = true;
         }
 
 		//Walk code
 		curVec = phys.velocity;
 		moveVec.x = moveSpeed * Input.GetAxis ("Horizontal") * transform.right.x;
 		moveVec.y = moveSpeed * Input.GetAxis ("Horizontal") * transform.right.y;
+
+		if (Input.GetKeyDown(KeyCode.RightArrow)) {
+			directionFacing = 1; // Face gun right
+		}
+		else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+			directionFacing = 0; // Face gun left
+		}
 
 		//Minimum speed code
 		if (moveVec.magnitude < minVel) {
@@ -77,20 +88,29 @@ public class PlayerController : MonoBehaviour
 			anime.SetBool ("Jump", false);
 		}
 
-        // Check for player death fall
-        if (this.gameObject.transform.position.y < -12.2)
-        {
-            // this only applies to the level editor since there is no canvas objects out side of the level builder
-            if (canvas != null)
-            {
-                canvas.GetComponent<reloadScene>().resetScene();
-            } else {
-                // this is for pre-built levels and levels loaded outside of the level editor
-                SceneManager.LoadScene("Pre-Created Levels");
-            }
-        }
-    }
+		// Check for player death fall
+		if (this.gameObject.transform.position.y < -12.2)
+		{
+			string sceneName = SceneManager.GetActiveScene ().name;
+			// this only applies to the level editor since there is no canvas objects out side of the level builder
+			if (sceneName == "Level Editor") {
+				Vector3 position = this.gameObject.transform.position;
+				position.y += 5;
+				this.gameObject.transform.position = position;
+				levelEditorCam = GameObject.FindGameObjectWithTag ("MainCamera");
+				levelEditorCam.SendMessage ("Stop", SendMessageOptions.DontRequireReceiver);
+			} else {
+				// this is for pre-built levels and levels loaded outside of the level editor
+				SceneManager.LoadScene("Pre-Created Levels");
+			}
+		}
 
+		// Play jump sound
+		if (playJumpSound == true) {
+			playJumpSound = false;
+			jumpSound.Play ();
+		}
+    }
 	 void OnCollisionStay2D (Collision2D collisionInfo)
  	{
 		inAir = false;

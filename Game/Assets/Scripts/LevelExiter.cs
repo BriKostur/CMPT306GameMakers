@@ -7,30 +7,41 @@ public class LevelExiter : MonoBehaviour {
 
 	public FadeTransition _fadeTransition;
 	public Canvas levelEdit;
+	public Canvas fade;
+	public Canvas quit;
+
+	public bool yesOnQuit = false; // If yes button on quit canvas (in level editor) has not been clicked
 
 	void Update() {
+		Scene currentScene = SceneManager.GetActiveScene ();
 		if(Input.GetKeyDown(KeyCode.Escape)) {
-			switchScene();
+			if (currentScene.name == "Level Editor") {
+				PlayGame script = this.GetComponent<PlayGame>();
+				if (script.isPlaying == true) {
+					script.Stop ();
+				}
+				quitPrompt();
+			}
+			else {
+				switchScene();
+			}
 		}
+	}
+
+	void quitPrompt() {
+		quit.GetComponent<Canvas> ().enabled = true;
 	}
 
 	void switchScene() {
 		StartCoroutine (executeSwitch ());
 	}
-
+		
 	IEnumerator executeSwitch() {
-		Scene currentScene = SceneManager.GetActiveScene ();
+		if (fade.enabled == false) {
+			fade.enabled = true;
+		}
 		_fadeTransition.initiate (false);
-		if (currentScene.name == "Level 1" || currentScene.name == "Level 2" || currentScene.name == "Level 3" || 
-			currentScene.name == "Level 4" || currentScene.name == "Level 5" || currentScene.name == "Level 6") {
-			yield return new WaitForSeconds (2);
-			SceneManager.LoadScene ("Pre-Created Levels"); // Name of button must match scene name, otherwise error
-		}
-		else
-		{
-			levelEdit.GetComponent<Canvas> ().enabled = false;
-			yield return new WaitForSeconds (2);
-			SceneManager.LoadScene ("Title Screen"); // Name of button must match scene name, otherwise error
-		}
+		yield return new WaitForSeconds (2);
+		SceneManager.LoadScene ("Title Screen"); // Name of button must match scene name, otherwise error
 	}
 }

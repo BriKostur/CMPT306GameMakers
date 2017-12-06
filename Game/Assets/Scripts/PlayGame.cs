@@ -9,6 +9,8 @@ public class PlayGame : MonoBehaviour {
 	Rigidbody2D r_body;
 	public Canvas levelEdit;
     GameObject flag;
+	GameObject musicSpeedControl;
+	public bool isPlaying = false;
  
 	// Use this for initialization
 	void Start () {
@@ -18,30 +20,52 @@ public class PlayGame : MonoBehaviour {
         }
 
         GameObject[] objects = SceneManager.GetSceneByName("Level Editor").GetRootGameObjects();
-        foreach(GameObject obj in objects) {
-            if(obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background")
-            obj.AddComponent<Drag_and_Drop>();
-            obj.AddComponent<OnOffScript>();
+		foreach (GameObject obj in objects) {
+			if (obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background" && obj.tag != "Level Editor Music") {
+				obj.AddComponent<Drag_and_Drop> ();
+				obj.AddComponent<OnOffScript> ();
+			}
         }
+
+		GameObject deletePlayerClone = GameObject.Find("OldMan(Clone)");
+		if (deletePlayerClone != null) {
+			Destroy (deletePlayerClone);
+		}
+		GameObject deleteBackgroundClone = GameObject.Find ("Background(Clone)");
+		if (deleteBackgroundClone != null) {
+			Destroy (deleteBackgroundClone);
+		}
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.P)) {
-			GameObject[] objects = SceneManager.GetSceneByName ("Level Editor").GetRootGameObjects ();
-			foreach (GameObject obj in objects) {
-				if (obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background")
-					obj.AddComponent<Drag_and_Drop> ();
-				obj.AddComponent<OnOffScript> ();
-				if (obj.GetComponent<Rigidbody2D> () != null) {
-					obj.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
-				}
+			if (levelEdit.enabled != true) {
+				Stop ();
 			}
-			Debug.Log ("It enabled?");
 		}
 	}
 
+	public void Stop() {
+		isPlaying = false;
+		GameObject[] objects = SceneManager.GetSceneByName ("Level Editor").GetRootGameObjects ();
+		foreach (GameObject obj in objects) {
+			if (obj.tag != "Canvas" && obj.tag != "MainCamera" && obj.tag != "Background" && obj.tag != "Level Editor Music") {
+				obj.AddComponent<Drag_and_Drop> ();
+				obj.AddComponent<OnOffScript> ();
+			}
+			if (obj.GetComponent<Rigidbody2D> () != null) {
+				obj.GetComponent<Rigidbody2D> ().constraints = RigidbodyConstraints2D.FreezeAll;
+			}
+		}
+		levelEdit.enabled = true;
+		musicSpeedControl = GameObject.FindGameObjectWithTag("Level Editor Music");
+		musicSpeedControl.SendMessage ("slowAudio", SendMessageOptions.DontRequireReceiver);
+	}
+
 	public void Play() {
+		isPlaying = true;
         // If the flag is not null, send a message to the EndTrigger script that the game is playing
         flag = GameObject.FindGameObjectWithTag("Victory");
         if (flag != null) {
@@ -72,5 +96,8 @@ public class PlayGame : MonoBehaviour {
 
         // Turns off the main canvas
 		levelEdit.GetComponent<Canvas> ().enabled = false;
+
+		musicSpeedControl = GameObject.FindGameObjectWithTag("Level Editor Music");
+		musicSpeedControl.SendMessage("fastAudio", SendMessageOptions.DontRequireReceiver);
 	}
 }

@@ -27,8 +27,11 @@ public class Drag_and_Drop : MonoBehaviour {
 		mousePosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, 5.0f);
 		transform.position = Camera.main.ScreenToWorldPoint (mousePosition) + offset;
 		if (Input.GetKeyDown (KeyCode.Delete)) {
-			Destroy (this.gameObject);
+			if (this.tag != "Player") {
+				Destroy (this.gameObject);
+			}
 		}
+
 	}
 
     // Spawns the objects with associated scripts when their related UI buttons are clicked
@@ -49,4 +52,5 @@ public class Drag_and_Drop : MonoBehaviour {
 	public void clearSelf(){
 		Destroy (this.gameObject);
 	}
+
 }

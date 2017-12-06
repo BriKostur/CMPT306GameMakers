@@ -17,9 +17,9 @@ public class ClearAll : MonoBehaviour {
 	public void Clear () {
 		GameObject[] allObjects = UnityEngine.Object.FindObjectsOfType<GameObject>();
 		foreach (GameObject go in allObjects) {
-            if(go.tag != "Player") {
-                go.SendMessage("clearSelf", SendMessageOptions.DontRequireReceiver);
-            }
+			if (go.tag != "Player") {
+				go.SendMessage ("clearSelf", SendMessageOptions.DontRequireReceiver);
+			}
 		}
 	}
 }

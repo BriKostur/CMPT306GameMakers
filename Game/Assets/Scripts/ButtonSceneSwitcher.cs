@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ButtonSceneSwitcher : MonoBehaviour {
 
-	public int time; // Wait time before scene switch
+	public float time; // Wait time before scene switch
 
 	public void switchScene() {
 		StartCoroutine (executeSwitch ());

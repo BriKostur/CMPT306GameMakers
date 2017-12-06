@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour {
 
-	//true when gun flipped left
-	bool flipped;
 	//position of gun relative to character
 	Vector3 myPos;
 
@@ -13,36 +11,33 @@ public class Gun : MonoBehaviour {
 		//initialize
 		myPos = new Vector3 (0.1f, -0.1f, 0f);
 		GetComponent<Transform>().localPosition = myPos;
-		flipped = false;
 
 		//create a child gunRay object 
 		Instantiate((Resources.Load("GunRay") as GameObject),GetComponent<Transform>()); 
 	}
 
 	void Update () {
-		//get character direction to face gun the correct way
-		float manDir=  GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController>().currSpeed;
+		//get direction to face gun the correct way
+		int gunDir = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController>().directionFacing;
 
-		//if character facing right or forward and gun is facing left
-		if (manDir >= 0 && flipped) {
+		//if gun facing right
+		if (gunDir == 1) {
 			//set position in relation to character
 			myPos.x = Mathf.Abs (myPos.x);
 			GetComponent<Transform> ().localPosition = myPos;
 
 			//flip the direction of the gun
 			GetComponent<SpriteRenderer> ().flipX = false;
-			flipped = false;
 		}
 
-		//if character facing left and gun is facing right
-		else if(manDir < 0 && !flipped){
+		//if gun facing left
+		else if (gunDir == 0) {
 			//set position in relation to character
 			myPos.x = -(Mathf.Abs (myPos.x));
 			GetComponent<Transform>().localPosition = myPos;
 
 			//flip the direction of the gun
 			GetComponent<SpriteRenderer> ().flipX = true;
-			flipped=true;
 		}
 		
 	}

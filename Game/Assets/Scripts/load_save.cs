@@ -58,6 +58,7 @@ public class load_save : MonoBehaviour {
 			if (gameObjects [i].tag != "Canvas") {
 				object_info myInfo = new object_info ();
 				GameObject prefab = PrefabUtility.FindPrefabRoot (gameObjects [i]);
+				//GameObject prefab = gameObjects [i];
                 Debug.Log(prefab.name);
 				myInfo.setName (prefab.name);
 				myInfo.setLocX (gameObjects [i].transform.position.x);
