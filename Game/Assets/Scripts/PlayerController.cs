@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 	private bool right;
 	private bool inAir; // Flag to prevent the player from jumping infinitely
 	public bool canGrav;
+	public int directionFacing; // Determine direction character is facing to point gun the correct way (0 is left, 1 is right, relative to character);
 	//public Transform warpDestination;
 	public bool playJumpSound = false;
 	
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
 		phys = GetComponent<Rigidbody2D> ();
 		//gameObject.transform.position = warpDestination.position; // Set spawn point
         anime = GetComponent<Animator>();
+		directionFacing = 1;
     }
 	
     private void FixedUpdate()
@@ -51,6 +53,13 @@ public class PlayerController : MonoBehaviour
 		curVec = phys.velocity;
 		moveVec.x = moveSpeed * Input.GetAxis ("Horizontal") * transform.right.x;
 		moveVec.y = moveSpeed * Input.GetAxis ("Horizontal") * transform.right.y;
+
+		if (Input.GetKeyDown(KeyCode.RightArrow)) {
+			directionFacing = 1; // Face gun right
+		}
+		else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+			directionFacing = 0; // Face gun left
+		}
 
 		//Minimum speed code
 		if (moveVec.magnitude < minVel) {

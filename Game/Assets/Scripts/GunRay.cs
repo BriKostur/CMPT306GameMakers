@@ -44,8 +44,8 @@ public class GunRay : MonoBehaviour {
 	void Update () {
 		//if fire key is pressed shoot or drop item
 		if (Input.GetKeyDown (KeyCode.F)) {
-			//get direction of character to set ray direction
-			float manDir= oldMan.GetComponent<Rigidbody2D>().velocity.x;
+			//get direction of gun to set ray direction
+			int gunDir = GameObject.FindGameObjectWithTag ("Player").GetComponent<PlayerController>().directionFacing;
 
 			//if hold no item, display gunray
 			if (item == null) {
@@ -55,14 +55,14 @@ public class GunRay : MonoBehaviour {
 				//set direction of ray and collider
 				Vector3 lineEndPoint = myLineRend.GetPosition(1);
 
-				//if man facing right or forward
-				if (manDir >= 0) {
+				//if gun facing right or forward
+				if (gunDir == 1) {
 					//set ray direction and collider to the right
 					myLineRend.SetPosition (1, new Vector3 (Mathf.Abs(lineEndPoint.x), lineEndPoint.y, lineEndPoint.z));
 					myColl.offset = new Vector2(Mathf.Abs(myColl.offset.x),myColl.offset.y);
 				} 
 
-				//if man facing left
+				//if gun facing left
 				else {
 					myLineRend.SetPosition (1, new Vector3 (-(Mathf.Abs(lineEndPoint.x)), lineEndPoint.y, lineEndPoint.z));
 					myColl.offset = new Vector2(-(Mathf.Abs(myColl.offset.x)),myColl.offset.y);
@@ -74,13 +74,13 @@ public class GunRay : MonoBehaviour {
 			
 			//else place object beside old man
 			} else {
-				//if man facing right or forward place object to right of man
+				//if gun facing right or forward place object to right of man
 				item.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, 0);
-				if (manDir >= 0) {
+				if (gunDir == 1) {
 					item.transform.position = new Vector3 (oldMan.transform.position.x + oldMan.transform.right.x* 1.5f, oldMan.transform.right.y* 1.5f+ oldMan.transform.position.y, oldMan.transform.position.z);
 				} 
 
-				//if man facing left place object to left of man
+				//if gun facing left place object to left of man
 				else {
 					item.transform.position = new Vector3 (oldMan.transform.position.x + oldMan.transform.right.x* -1.5f, oldMan.transform.right.y* -1.5f+ oldMan.transform.position.y, oldMan.transform.position.z);
 				}
