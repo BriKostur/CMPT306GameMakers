@@ -8,13 +8,16 @@ using System.IO;
 using UnityEngine.UI;
 
 public class load_save : MonoBehaviour {
-	private string myFilePath = "Assets/LoadScenes/";
-	private string tempFilePath = "Assets/EditScenes/EditScene.json";
-    private string tempMetaPath = "Assets/EditScenes/EditScene.meta";
+	private string myFilePath;
+	private string tempFilePath;
+	private string tempMetaPath;
 	private string jsonString;
 	// Use this for initialization
 	void Start () {
-		
+		print ("Saving to" + Application.persistentDataPath);
+		myFilePath = Application.persistentDataPath+"/";
+		tempFilePath = Application.persistentDataPath + "/EditScenes.json";
+		tempMetaPath = Application.persistentDataPath + "/EditScenes.meta";	
 	}
 
 

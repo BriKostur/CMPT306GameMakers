@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class LevelButtons : MonoBehaviour {
 
-    private string myFilePath = "Assets/LoadScenes";
+	private string myFilePath;
     private Object buttons;
 
     // Use this for initialization
     void Start () {
-
+		print("PathAt"+Application.persistentDataPath+"/");
+		myFilePath = Application.persistentDataPath+"/";
         PopulateGrid();
 
     }
@@ -36,7 +37,7 @@ public class LevelButtons : MonoBehaviour {
             nameButton.name = Path.GetFileNameWithoutExtension(i.ToString());
             Text temp = nameButton.GetComponentInChildren<Text>();
             temp.text = Path.GetFileNameWithoutExtension(i.ToString());
-            Debug.Log(Path.GetFileNameWithoutExtension(i.ToString()));
+//            Debug.Log(Path.GetFileNameWithoutExtension(i.ToString()));
 
         }
 

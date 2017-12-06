@@ -14,7 +14,7 @@ public class LoadLevel : MonoBehaviour {
 	void Start () {
         // Find the blank object that holds the string for the custom level name
         nameChange = GameObject.FindGameObjectWithTag("NameHolder");
-		Debug.Log (nameChange.name);
+//		Debug.Log (nameChange.name);
 	}
 	
 	// Update is called once per frame
