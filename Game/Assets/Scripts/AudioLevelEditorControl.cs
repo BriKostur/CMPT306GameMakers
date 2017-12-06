@@ -60,12 +60,14 @@ public class AudioLevelEditorControl : MonoBehaviour {
 
 	// Switch to slow (pressed "p" on keyboard)
 	public void slowAudio() {
-		speedForLoop = false; // Set bool that we are playing slow track
-		float time = fast.time; // Save current time position of fast track
-		float playTime = time * slowDownFactor; // Time position to set slow track
-		fast.Stop ();
-		slow.time = playTime;
-		slow.Play ();
+		if (fast.isPlaying == true) {
+			speedForLoop = false; // Set bool that we are playing slow track
+			float time = fast.time; // Save current time position of fast track
+			float playTime = time * slowDownFactor; // Time position to set slow track
+			fast.Stop ();
+			slow.time = playTime;
+			slow.Play ();
+		}
 	}
 		
 }
