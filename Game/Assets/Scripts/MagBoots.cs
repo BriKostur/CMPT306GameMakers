@@ -23,15 +23,17 @@ public class MagBoots : MonoBehaviour {
 				//Stops the animation, will resume normal gravity from other check
 				part.Clear ();
 				part.Pause ();
-			} else {
+                isActive = !isActive;
+            } else {
 				//Check if the player is touch a gravity platform
 				if (GetComponentInParent<PlayerController>().canGrav){
 					//Save the current gravity vector and turn on the particles
 					bootGrav.force = Physics2D.gravity * phys.mass;
 					part.Play ();
-				}
+                    isActive = !isActive;
+                }
 			}
-			isActive = !isActive;
+			
 		}
 		if (!isActive) {
 			//Whenever the gravity boots are off apply the global gravity vector to the player

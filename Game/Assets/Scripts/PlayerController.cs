@@ -58,9 +58,9 @@ public class PlayerController : MonoBehaviour
 		moveVec.x = moveSpeed * Input.GetAxis ("Horizontal") * transform.right.x;
 		moveVec.y = moveSpeed * Input.GetAxis ("Horizontal") * transform.right.y;
 
-		if (Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.A)) {
+		if (Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.D)) {
 			directionFacing = 1; // Face gun right
-		} else if (Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.D)) {
+		} else if (Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.A)) {
 			directionFacing = 0; // Face gun left
 		}
 
