@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Jump code
-        if (Input.GetKeyDown(KeyCode.Space) &&!inAir ||  Input.GetKeyDown(KeyCode.W) && !inAir)
+		if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow) ||  Input.GetKeyDown(KeyCode.W)) && !inAir)
         {
 			phys.velocity = new Vector2(GetComponent<Rigidbody2D>().velocity.x + jumpHeight * transform.up.x, GetComponent<Rigidbody2D>().velocity.y + jumpHeight * transform.up.y);
 			inAir = true;
@@ -58,10 +58,9 @@ public class PlayerController : MonoBehaviour
 		moveVec.x = moveSpeed * Input.GetAxis ("Horizontal") * transform.right.x;
 		moveVec.y = moveSpeed * Input.GetAxis ("Horizontal") * transform.right.y;
 
-		if (Input.GetKeyDown(KeyCode.RightArrow)) {
+		if (Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.A)) {
 			directionFacing = 1; // Face gun right
-		}
-		else if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+		} else if (Input.GetKeyDown (KeyCode.LeftArrow) || Input.GetKeyDown (KeyCode.D)) {
 			directionFacing = 0; // Face gun left
 		}
 
