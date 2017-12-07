@@ -14,10 +14,12 @@ public class PlayGame : MonoBehaviour {
  
 	// Use this for initialization
 	void Start () {
-        if(File.Exists("Assets/EditScenes/EditScene.json")){
+        if (File.Exists(Application.persistentDataPath + "/EditScene.json"))
+        {
             load_save script = this.GetComponent<load_save>();
             script.ReloadLevelEditor();
         }
+
 
         GameObject[] objects = SceneManager.GetSceneByName("Level Editor").GetRootGameObjects();
 		foreach (GameObject obj in objects) {
@@ -27,22 +29,18 @@ public class PlayGame : MonoBehaviour {
 			}
         }
 
-		GameObject deletePlayerClone = GameObject.Find("OldMan(Clone)");
+		GameObject deletePlayerClone = GameObject.Find("OldMan");
 		if (deletePlayerClone != null) {
 			Destroy (deletePlayerClone);
 		}
-		GameObject deleteBackgroundClone = GameObject.Find ("Background(Clone)");
-		if (deleteBackgroundClone != null) {
-			Destroy (deleteBackgroundClone);
-		}
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyDown (KeyCode.P)) {
 			if (levelEdit.enabled != true) {
-				Stop ();
+
+                new reloadScene().resetScene();
 			}
 		}
 	}

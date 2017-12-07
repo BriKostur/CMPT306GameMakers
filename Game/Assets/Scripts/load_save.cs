@@ -15,9 +15,8 @@ public class load_save : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		print ("Saving to" + Application.persistentDataPath);
-		myFilePath = Application.persistentDataPath+"/";
-		tempFilePath = Application.persistentDataPath + "/EditScenes.json";
-		tempMetaPath = Application.persistentDataPath + "/EditScenes.meta";	
+		myFilePath = (Application.persistentDataPath+"/");
+		tempFilePath = (Application.persistentDataPath + "/EditScene.json");
 	}
 
 
@@ -128,9 +127,11 @@ public class load_save : MonoBehaviour {
 
 	//call when reloading level editor
 	public void ReloadLevelEditor(){
-		if (File.Exists (tempFilePath)) {
-			string dataAsJson = File.ReadAllText (tempFilePath);
-			object_info[] returnInfo = JsonHelper.FromJson<object_info> (dataAsJson);
+        tempFilePath = (Application.persistentDataPath + "/EditScene.json");
+        if (File.Exists(tempFilePath)) {
+            string dataAsJson = File.ReadAllText (tempFilePath);
+
+            object_info[] returnInfo = JsonHelper.FromJson<object_info> (dataAsJson);
 			Camera myCam = Camera.main;
 			myCam.transform.position = new Vector3 (returnInfo [0].getLocX (), returnInfo [0].getLocY (), returnInfo [0].getLocZ ());
 			for (int i = 1; i < returnInfo.Length; i++) {
