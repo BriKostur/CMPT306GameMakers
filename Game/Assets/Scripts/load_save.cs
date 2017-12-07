@@ -78,7 +78,7 @@ public class load_save : MonoBehaviour {
 				myInfo.setRotX (gameObjects [i].transform.rotation.x);
 				myInfo.setRotY (gameObjects [i].transform.rotation.y);
 				myInfo.setRotZ (gameObjects [i].transform.rotation.z);
-				if (myName == "MainCamera") { //This part makes sure that the Camera and backgournd always come first
+				if (myName == "Main Camera") { //This part makes sure that the Camera and backgournd always come first
 					info[i] = info [0];
 					info [0] = myInfo;
 					offSet--;
@@ -129,7 +129,6 @@ public class load_save : MonoBehaviour {
 					Debug.Log ("null at index " + i + " name " + returnInfo [i].getPrefabName ());
 				}
 			}
-
 		} 
 	}
 
