@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 	//public Transform warpDestination;
 	public bool playJumpSound = false;
 	GameObject levelEditorCam; // Used to find camera of level editor to invoke Stop() in PlayGame.cs
+    GameObject canvas;
 	
     // Use this for initialization
     void Start()
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
 		//gameObject.transform.position = warpDestination.position; // Set spawn point
         anime = GetComponent<Animator>();
 		directionFacing = 1;
+        canvas = GameObject.Find("RestartButton");
     }
 	
     private void FixedUpdate()
@@ -91,8 +93,10 @@ public class PlayerController : MonoBehaviour
 		// Check for player death fall
 		if (this.gameObject.transform.position.y < -12.2)
 		{
+            /**
 			string sceneName = SceneManager.GetActiveScene ().name;
 			// this only applies to the level editor since there is no canvas objects out side of the level builder
+
 			if (sceneName == "Level Editor") {
 				Vector3 position = this.gameObject.transform.position;
 				position.y += 5;
@@ -103,6 +107,13 @@ public class PlayerController : MonoBehaviour
 				// this is for pre-built levels and levels loaded outside of the level editor
 				SceneManager.LoadScene("Pre-Created Levels");
 			}
+			**/
+            string sceneName = SceneManager.GetActiveScene().name;
+            if(canvas != null) {
+                canvas.GetComponent<reloadScene>().resetScene();
+            } else {
+                SceneManager.LoadScene(sceneName);
+            }
 		}
 
 		// Play jump sound
