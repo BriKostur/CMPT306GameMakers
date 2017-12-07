@@ -30,7 +30,7 @@ public class PlayGame : MonoBehaviour {
         }
 
 		GameObject deletePlayerClone = GameObject.Find("OldMan");
-		if (deletePlayerClone != null) {
+		if (deletePlayerClone != null&& GameObject.Find("OldMan(Clone)")!=null) {
 			Destroy (deletePlayerClone);
 		}
 	}
