@@ -55,11 +55,10 @@ public class load_save : MonoBehaviour {
 		GameObject [] gameObjects = SceneManager.GetSceneByName("Level Editor").GetRootGameObjects(); 
 		int size = gameObjects.Length;
 		object_info[] info = new object_info[size];
-		//Debug.Log ("in save");
+		int offSet = 2; //Offset helps us put the camera and backgournd first
 		for (int i = 0; i < size; i++) {
 			if (gameObjects [i].tag != "Canvas") {
 				object_info myInfo = new object_info ();
-				//GameObject prefab = PrefabUtility.FindPrefabRoot (gameObjects [i]);
 				GameObject prefab = gameObjects [i];
 
                 int clonePos = prefab.name.IndexOf("(Clone)");
@@ -79,6 +78,15 @@ public class load_save : MonoBehaviour {
 				myInfo.setRotX (gameObjects [i].transform.rotation.x);
 				myInfo.setRotY (gameObjects [i].transform.rotation.y);
 				myInfo.setRotZ (gameObjects [i].transform.rotation.z);
+				if (myName == "MainCamera") { //This part makes sure that the Camera and backgournd always come first
+					info[i] = info [0];
+					info [0] = myInfo;
+					offSet--;
+				}else if(myName == "Background") {
+					info[i] = info [1];
+					info [1] = myInfo;
+					offSet--;
+				}
 				info [i] = myInfo;
 			}
 		}
