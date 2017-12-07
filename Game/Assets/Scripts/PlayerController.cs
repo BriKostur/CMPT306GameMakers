@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 	
     private void FixedUpdate()
     {
+		GetComponent<Rigidbody2D>().AddForce(moveVec);
 		if (!GetComponentInChildren<MagBoots> ().isActive) {
 			transform.up = -Physics2D.gravity;
 		}
@@ -76,7 +77,6 @@ public class PlayerController : MonoBehaviour
 		}
 
 		//Apply calculated movement vector
-		GetComponent<Rigidbody2D>().AddForce(moveVec);
 
 		//Handle walking animation
 		currSpeed =(phys.velocity.y*transform.right.y + phys.velocity.x*transform.right.x);
