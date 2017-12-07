@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
+using System.IO;
+using UnityEngine.UI;
 
 public class LevelExiter : MonoBehaviour {
 
@@ -9,7 +12,7 @@ public class LevelExiter : MonoBehaviour {
 	public Canvas levelEdit;
 	public Canvas fade;
 	public Canvas quit;
-
+	private string storage;
 	public bool yesOnQuit = false; // If yes button on quit canvas (in level editor) has not been clicked
 
 	void Update() {
@@ -24,6 +27,10 @@ public class LevelExiter : MonoBehaviour {
 			}
 			else {
 				switchScene();
+			}
+			storage = (Application.persistentDataPath + "/EditScene.json");
+			if (File.Exists(storage)) {
+				File.Delete (storage);
 			}
 		}
 	}
