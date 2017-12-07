@@ -37,7 +37,7 @@ public class PlayGame : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.P)) {
+		if (Input.GetKeyDown (KeyCode.F1)) {
 			if (levelEdit.enabled != true) {
 
                 new reloadScene().resetScene();
