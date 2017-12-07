@@ -28,10 +28,6 @@ public class LevelExiter : MonoBehaviour {
 			else {
 				switchScene();
 			}
-			storage = (Application.persistentDataPath + "/EditScene.json");
-			if (File.Exists(storage)) {
-				File.Delete (storage);
-			}
 		}
 	}
 
@@ -50,5 +46,9 @@ public class LevelExiter : MonoBehaviour {
 		_fadeTransition.initiate (false);
 		yield return new WaitForSeconds (2);
 		SceneManager.LoadScene ("Title Screen"); // Name of button must match scene name, otherwise error
+		storage = (Application.persistentDataPath + "/EditScene.json");
+		if (File.Exists(storage)) {
+			File.Delete (storage);
+		}
 	}
 }
