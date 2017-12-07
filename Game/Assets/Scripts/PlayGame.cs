@@ -8,7 +8,7 @@ public class PlayGame : MonoBehaviour {
 
 	Rigidbody2D r_body;
 	public Canvas levelEdit;
-    GameObject flag;
+    GameObject[] flag;
 	GameObject musicSpeedControl;
 	public bool isPlaying = false;
  
@@ -65,10 +65,11 @@ public class PlayGame : MonoBehaviour {
 	public void Play() {
 		isPlaying = true;
         // If the flag is not null, send a message to the EndTrigger script that the game is playing
-        flag = GameObject.FindGameObjectWithTag("Victory");
+        flag = GameObject.FindGameObjectsWithTag("Victory");
         if (flag != null) {
-            
-            flag.SendMessage("SetPlaying", true, SendMessageOptions.DontRequireReceiver);
+			for (int i = 0; i < flag.Length; i++) {
+				flag[i].SendMessage ("SetPlaying", true, SendMessageOptions.DontRequireReceiver);
+			}
         }
 			
         // Stores all game objects then loops to turn off the drag and drop functionality
