@@ -349,6 +349,7 @@ MonoBehaviour:
   jumpHeight: 7
   currSpeed: 0
   canGrav: 0
+  directionFacing: 0
   playJumpSound: 0
 --- !u!114 &114234760327107080
 MonoBehaviour:

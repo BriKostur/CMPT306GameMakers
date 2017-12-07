@@ -14,6 +14,12 @@ public class GrapplingHook : MonoBehaviour
     //How fast the rope slowly closes down
     public float step = 0.02f;
 
+    void Awake()
+    {
+        QualitySettings.vSyncCount = 1;
+        Application.targetFrameRate = 60;
+    }
+
     // Use this for initialization
     void Start()
     {
@@ -74,20 +80,20 @@ public class GrapplingHook : MonoBehaviour
 
         line.SetPosition(1, joint.connectedBody.transform.TransformPoint(joint.connectedAnchor));
 
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
+         if (Input.GetKey(KeyCode.Mouse0))
+         {
 
             line.SetPosition(0, transform.position);
-        }
-
+         }
 
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
             joint.enabled = false;
             line.enabled = false;
         }
-
     }
+
 }
+
     
 
