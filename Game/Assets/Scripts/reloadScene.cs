@@ -17,6 +17,7 @@ public class reloadScene : MonoBehaviour {
 
     // Reloading the scene
     public void resetScene() {
+		Physics2D.gravity = new Vector2 (0f,-9.81f);
         SceneManager.LoadScene("Level Editor");
     }
 }
